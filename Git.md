@@ -32,34 +32,34 @@ git config --global user.email 'GitHub Email'
 
 #### git 용어 설명
 
-1. **git init : git 접속**
+1. `git init` : **git 접속**
 
-2. **git add 파일명 : WD에서 SA로 보낼 때 사용**
+2. `git add 파일명` : **WD에서 SA로 보낼 때 사용**
 
-3. **git commit -m '커밋메세지' : 무슨 일을 했는 지 남기는 곳**
+3. `git commit -m '커밋메세지'` : **무슨 일을 했는 지 남기는 곳**
 
 > git commit 을 친 후 엔터를 누르면 커밋메세지를 많이 남길 수 있음.
 
-4. **git status : 현재 파일들의 위치를 확인할 때 사용**
+4. `git status` : **현재 파일들의 위치를 확인할 때 사용**
 
-5. **git . : 폴더 안 모든 파일 추가**
+5. `git .` : **폴더 안 모든 파일 추가**
 
-6. **git log : 무슨 일을 했는지 확인 할 때 사용**
+6. `git log` : **무슨 일을 했는지 확인 할 때 사용**
 
-7. **git log -원하는 숫자 : 최근 작업 숫자 적은 만큼 표시**
+7. `git log -원하는 숫자` : **최근 작업 숫자 적은 만큼 표시**
 
-8. **git log --oneline : 1줄로 보기**
+8. `git log --oneline` : **1줄로 보기**
 
-- 예) git log -2 --oneline : 최근 작업 2개를 1줄로 보여줘
+- 예) `git log -2 --oneline` : 최근 작업 2개를 1줄로 보여줘
 
-9. **git remote add origin GitHub 주소 : 원격 저장소에 추가해줘 오리진이란 이름으로 내 주소를 **
-10. **git remote -v : 원격 저장소 주소 확인**
-11. **git push origin master : 보내기**
-12. **git pull origin master : 받기**
+9. `git remote add origin GitHub 주소` : **원격 저장소에 추가해줘 오리진이란 이름으로 내 주소를 **
+10. `git remote -v` : **원격 저장소 주소 확인**
+11. `git push origin master` : **보내기**
+12. `git pull origin master` : **받기**
 
 #### 설정 확인
 
-- **git config -l, git config --global -l, git config user.name(등록한 아이디 확인)**
+- `git config -l, git config --global -l, git config user.name(등록한 아이디 확인)`
 
   > 아직 뜨는 메세지가 무엇을 의미하는 지는 잘 모름.
 
