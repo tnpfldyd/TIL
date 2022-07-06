@@ -53,8 +53,6 @@
 
 ### 6. 이미지
 
-![](이미지주소) or ![img](이미지주소)
-
 > URL과 달리 컴퓨터에 있는 파일을 올릴시 assets 파일을 생성 뒤 폴더와 함께 업로드를 해야한다.
 
 예) 
@@ -67,7 +65,7 @@
 
 2. 컴퓨터에 저장할 시
 
-<img src="마크다운 문법.assets/ea06cd0346fa8777cb624e3f.jpg" alt="ea06cd0346fa8777cb624e3f" style="zoom:25%;" />
+<img src="Mark.assets/ea06cd0346fa8777cb624e3f.jpg" alt="ea06cd0346fa8777cb624e3f" style="zoom:25%;" />
 
 ### 7. Blockquotes(인용문)
 
