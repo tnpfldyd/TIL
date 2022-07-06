@@ -67,7 +67,7 @@ git config --global user.email 'GitHub Email'
 
 #### 유의 사항
 
-- **빈 폴더는 Status 에 표시 X **
+- **빈 폴더는 Status 에 표시 X**
 
   -  만약 작업이 대기 중인 빈 폴더이면 관용적으로 **.gitkepp** 이란 파일을 만든다.
 
