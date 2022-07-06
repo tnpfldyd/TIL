@@ -10,6 +10,6 @@
 
 
 - **1주차**
-  - [마크다운 문법](마크다운 문법.md)
+  - [마크다운 문법](Mark.md)
   - [CLI](CLI.md)(Command Line Interface)
   - [Git](Git.md)(분산 버전 관리 시스템)
