@@ -10,7 +10,7 @@
 ---
 ![](README.assets/img.gif)
 
-
+> Always a brilliant teacher......
 
 - **분류**
   - [마크다운 문법](Mark.md)
