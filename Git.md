@@ -41,14 +41,6 @@ git config --global user.name 'GitHub ID'
 
 git config --global user.email 'GitHub Email'
 ```
- - #### git 기본 용어 설명
-
- - #### git branch 용어 설명
-
- - #### 설정 확인
-
- - #### 유의 사항
-
 ---
 
 - ####  git 기본 용어 설명
@@ -78,6 +70,8 @@ git config --global user.email 'GitHub Email'
 11. `git push origin master` : **보내기**
 12. `git pull origin master` : **받기**
 
+---
+
 - #### git branch 용어 설명
 
 1. `git clone 상대 깃 허브 주소` : **내 컴퓨터에 클론 만드는 방법**
@@ -87,13 +81,15 @@ git config --global user.email 'GitHub Email'
 5. `git checkout -b 이름` : **이름 이라는 브랜치 생성 뒤 바로 이동**
 6. `git merge 브랜치이름` : **브랜치이름과 master가 병합**
 
+---
+
 - #### 설정 확인
 
 - `git config -l, git config --global -l, git config user.name(등록한 아이디 확인)`
 
   > 아직 뜨는 메세지가 무엇을 의미하는 지는 잘 모름.
 
-
+---
 
 - #### 유의 사항
 
