@@ -10,6 +10,8 @@
 
 - ### Git 사용 방법
 
+---
+
 ### 개요
 
 
@@ -26,6 +28,8 @@
 
 - **커밋(버전)들이 기록 되는곳(최종)**
 
+---
+
 
 
 ### Git 사용 방법
@@ -37,10 +41,17 @@ git config --global user.name 'GitHub ID'
 
 git config --global user.email 'GitHub Email'
 ```
+ - #### git 기본 용어 설명
+
+ - #### git branch 용어 설명
+
+ - #### 설정 확인
+
+ - #### 유의 사항
 
 ---
 
-#### git 용어 설명
+- ####  git 기본 용어 설명
 
 1. `git init` : **git 접속**
 
@@ -66,9 +77,17 @@ git config --global user.email 'GitHub Email'
 10. `git remote -v` : **원격 저장소 주소 확인**
 11. `git push origin master` : **보내기**
 12. `git pull origin master` : **받기**
-12. 
 
-#### 설정 확인
+- #### git branch 용어 설명
+
+1. `git clone 상대 깃 허브 주소` : **내 컴퓨터에 클론 만드는 방법**
+2. `git branch 이름` : **브랜치 생성 방법**
+3. `git branch` : **브랜치 조회**
+4. `git checkout 이름` : **이름 이라는 브랜치로 이동**
+5. `git checkout -b 이름` : **이름 이라는 브랜치 생성 뒤 바로 이동**
+6. `git merge 브랜치이름` : **브랜치이름과 master가 병합**
+
+- #### 설정 확인
 
 - `git config -l, git config --global -l, git config user.name(등록한 아이디 확인)`
 
@@ -76,14 +95,11 @@ git config --global user.email 'GitHub Email'
 
 
 
-#### 유의 사항
+- #### 유의 사항
 
-- **빈 폴더는 Status 에 표시 X**
+  - **빈 폴더는 Status 에 표시 X**
+  - 만약 작업이 대기 중인 빈 폴더이면 관용적으로 **.gitkepp** 이란 파일을 만든다.
+  - **명령어에 ctrl + c 하면 실수 했을 시 그냥 넘어 갈 수 있다.**
+  - **폴더 안에 있는 파일을 add 하고 싶지 않을 때 .gitignore 을 생성 뒤 그 안에 파일 이름 넣으면 깃으로 부터 숨길수 있음! 폴더는 /폴더이름**
 
-  -  만약 작업이 대기 중인 빈 폴더이면 관용적으로 **.gitkepp** 이란 파일을 만든다.
-
-- **명령어에 ctrl + c 하면 실수 했을 시 그냥 넘어 갈 수 있다.**
-
-- **폴더 안에 있는 파일을 add 하고 싶지 않을 때 .gitignore 을 생성 뒤 그 안에 파일 이름 넣으면 깃으로 부터 숨길수 있음! 폴더는 /폴더이름**
-
-  - > 모든 .txt 파일을 숨기고 싶을 시 *.txt 로 설정해두면 모든 .txt 파일이 숨겨짐.
+  > 모든 .txt 파일을 숨기고 싶을 시 *.txt 로 설정해두면 모든 .txt 파일이 숨겨짐.
