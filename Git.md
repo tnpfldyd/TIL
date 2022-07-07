@@ -2,7 +2,17 @@
 
 `기본 적인 구성은 Working Directory, Staging Area, Repository 로 구분 되어 있음.`
 
-## 개요
+
+
+## 목차
+
+- ### 개요
+
+- ### Git 사용 방법
+
+### 개요
+
+
 
 #### 1. Working Directory
 
@@ -18,7 +28,7 @@
 
 
 
-## Git 사용 방법
+### Git 사용 방법
 
 #### 처음 이메일 및 닉네임 설정 방법
 
@@ -56,6 +66,7 @@ git config --global user.email 'GitHub Email'
 10. `git remote -v` : **원격 저장소 주소 확인**
 11. `git push origin master` : **보내기**
 12. `git pull origin master` : **받기**
+12. 
 
 #### 설정 확인
 
