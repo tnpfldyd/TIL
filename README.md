@@ -8,7 +8,7 @@
 | 오후 (1시~6시)  | 줌 및 디스코드 (실습) |
 
 ---
-![](http://pds20.egloos.com/pds/201909/06/72/b0364372_5d7228159529f.gif)
+![](README.assets/img.gif)
 
 
 
