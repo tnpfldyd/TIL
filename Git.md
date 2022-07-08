@@ -101,13 +101,16 @@ git config --global user.email 'GitHub Email'
   - **명령어에 ctrl + c 하면 실수 했을 시 그냥 넘어 갈 수 있다.**
   - **폴더 안에 있는 파일을 add 하고 싶지 않을 때 .gitignore 을 생성 뒤 그 안에 파일 이름 넣으면 깃으로 부터 숨길수 있음! 폴더는 /폴더이름**
   - 브랜치를 사용 한 뒤에는 의미가 없으므로 **브랜치 삭제!**
-  
+
   > 모든 .txt 파일을 숨기고 싶을 시 *.txt 로 설정해두면 모든 .txt 파일이 숨겨짐.
 
 - #### Feature Branch Workflow (소유권이 있는 경우)
 
   - **소유권이 있는 상태의 경우**
     - `git checkout -b 브랜치 이름 > 파일 git add . > git commit -m 하고 브랜치 상태에서 > git push origin 브랜치이름 > Github 사이트에서 branch 와 merge가 가능하다. Pull requests. 창에서 확인.`
+
+- #### Forking Workflow (소유권이 없는 경우)
+
   - **소유권이 없는 경우**
     - `상대 Github에 들어가서 Fork를 누른 뒤, 내 주소로 들어가서 주소를 복사 한 뒤 클론을 생성한다.
       git clone 주소 > 수정이나 파일을 생성 뒤, git add . > git commit -m > git push origin (파란괄호안에 명령어) > 주소 들어가서 Pull requests 요청`
