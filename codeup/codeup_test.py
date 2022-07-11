@@ -1,4 +1,2 @@
-
-a, b = input().split()
-m = float(a) * float(b)
-print(m)
+name = "abcdefg"
+print(name[6:2:-1])
