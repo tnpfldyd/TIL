@@ -1,7 +1,5 @@
-numbers = [0, 20, 100]
-result = numbers[0]
 
-for i in numbers:
-    if i > result:
-        result = i
-print(result)
+n, m = map(int, input().split('-'))
+print(n*m)
+a, b = input().split()
+print(a, b, sep=('.'), type{(a, b)})
