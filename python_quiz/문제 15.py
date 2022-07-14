@@ -1,11 +1,11 @@
-a = 'bbba'
+a = 'qweqeqwea'
 b = 0
 for c in a:
     if c in 'a':
         print(b)
         break
 
-    elif not 'a' in a:
+    elif 'a' not in a:
         print(-1)
         break
     

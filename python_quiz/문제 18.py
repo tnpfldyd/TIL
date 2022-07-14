@@ -1,9 +1,9 @@
 word = 'banana'
 tcid = {}
 for q in word:
-    if tcid.get(q) == None:
+    if q not in tcid:
         tcid[q] = 1
     else:
         tcid[q] += 1
-for q in tcid:
-    print(q, tcid.get(q))
+for a, b in tcid.items():
+    print(a, b)
