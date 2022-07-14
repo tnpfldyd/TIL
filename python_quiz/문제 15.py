@@ -1,4 +1,4 @@
-a = 'qweqeqwea'
+a = 'qweqeqwe'
 b = 0
 for c in a:
     if c in 'a':
@@ -11,4 +11,4 @@ for c in a:
     
     else:
         b += 1    
-    
+word = 'apple'
