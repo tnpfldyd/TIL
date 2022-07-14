@@ -1,5 +1,10 @@
+d = {'apple' : '사과', 'banana' : '바나나'}
 
-n, m = map(int, input().split('-'))
-print(n*m)
-a, b = input().split()
-print(a, b, sep=('.'), type{(a, b)})
+print(d.get('apple'))
+for a in d.values():
+    print(a)
+
+v = d.pop('apple')
+print(v)
+
+print(d)
