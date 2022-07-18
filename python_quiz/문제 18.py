@@ -5,5 +5,6 @@ for q in word:
         tcid[q] = 1
     else:
         tcid[q] += 1
+print(tcid, end='\n')
 for a, b in tcid.items():
     print(a, b)
