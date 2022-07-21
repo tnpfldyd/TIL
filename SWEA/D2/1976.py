@@ -17,6 +17,6 @@ for i in range(1, T+1):
         minit = b + d - 60
     else:
         minit = b + d
-    if time == 13:
+    if time > 12:
         time -= 12
     print('#'+str(i), time, minit)
