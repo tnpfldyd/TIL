@@ -16,5 +16,5 @@ for i in range(1, T+1):
         if (k+1) % 10 == 0:
             print(R[k])
         else:
-            print(R[k], end='')
+            print(R[k], end = '')
     print()
