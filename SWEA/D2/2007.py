@@ -12,7 +12,7 @@ for i in range(1, T+1):
             result += 1
             print('#'+str(i), result)
             break
-        elif a[00] != a[1]:
+        elif a[0] != a[1]:
             result += 1
             if a[0:result] == a[result:result+result]:
                 print('#'+str(i), result)
