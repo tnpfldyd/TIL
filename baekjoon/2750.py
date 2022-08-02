@@ -1,7 +1,9 @@
+import heapq, sys
+input = sys.stdin.readline
 T = int(input())
 result = []
 for i in range(T):
     number = int(input())
-    result.append(number)
-for j in sorted(result):
-    print(j)
+    heapq.heappush(result, number)
+for j in range(len(result)):
+    print(heapq.heappop(result))

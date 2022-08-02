@@ -1,0 +1,5 @@
+a, b = list(map(int, input().split()))
+numbers1_ = set(map(int, input().split()))
+numbers2_ = set(map(int, input().split()))
+result = len(numbers1_ - numbers2_) + len(numbers2_ - numbers1_)
+print(result)
