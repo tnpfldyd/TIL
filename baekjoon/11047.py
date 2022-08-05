@@ -9,7 +9,7 @@ result.sort(reverse = True)
 cnt = 0
 while K != 0:
     for i in result:
-        if K / i > 1:
+        if K / i >= 1:
             cnt += K // i
-            K -= K // i * i
+            K %= i
 print(cnt)
