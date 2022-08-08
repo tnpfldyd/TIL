@@ -14,6 +14,6 @@ while start:
         nx = x + dx[i]
         ny = y + dy[i]
         if 0 <= nx < N and 0 <= ny < M:
-            if result[nx][ny] == 0 and matrix[nx][ny] == '1':
+            if result[nx][ny] == 0 and matrix[nx][ny] == 1:
                 result[nx][ny] = result[x][y] + 1
                 start.append((nx, ny))
