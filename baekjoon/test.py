@@ -1,7 +1,8 @@
 import sys
 input = sys.stdin.readline
-result = [list(map(int, input().split())) for _ in range(19)]
+result = [list(map(int, input().rstrip().split())) for _ in range(19)]
 dx, dy = [1, 1, 0, -1], [0, 1, 1, 1]
+answer = 0
 for x in range(19):
     for y in range(19):
         if result[x][y] != 0:
@@ -18,7 +19,8 @@ for x in range(19):
                             break
                         print(result[x][y])
                         print(x + 1, y + 1)
-                        sys.exit(0)
+                        answer = 1
                     nx += dx[k]
                     ny += dy[k]
-print(0)
+if answer == 0:
+    print(answer)
