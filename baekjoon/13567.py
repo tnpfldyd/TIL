@@ -21,7 +21,7 @@ for i in range(n):
             else:
                 start -= 1
     else:
-        if 0 <= x + (int(times) * dx[start]) < M and 0 <= y + (int(times) * dy[start])< M:
+        if 0 <= x + int(times) * dx[start] < M and 0 <= y + int(times) * dy[start] < M:
             # matrix[x][y] = 0
             x += int(times) * dx[start]; y += int(times) * dy[start]
             # matrix[x][y] = 1
