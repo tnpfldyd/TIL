@@ -14,7 +14,9 @@ for i in range(T):
             stack.append(kcats); result[i].append(kcats)
             start += 1; minus += 1
 temp = max(map(len, (result)))
+max_len = [result[i] for i in range(T) if len(result[i]) == temp]
 for i in range(T):
     if len(result[i]) == temp:
         print(temp)
         print(*result[i])
+# print(*max_len[0])
