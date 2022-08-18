@@ -1,3 +1,4 @@
+from pprint import pprint
 from collections import deque
 N, M = map(int, input().split())
 matrix = [list(map(int, input().split())) for _ in range(M)]
@@ -24,4 +25,5 @@ for i in range(M):
     for j in range(N):
         if visited[i][j] == 0:
             cnt += 1
+pprint(visited)
 print(max(map(max, visited)) - 1 if cnt == 0 else -1)
