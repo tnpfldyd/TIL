@@ -39,6 +39,6 @@ for k in range(1, len(mat)):
     # 위의 rev 순서를 바탕으로 탐색해야 하는 순서(간선)를 정렬해줌
     # bfs 는 답이 여러개가 존재할 수 있기때문에 1가지 경우만 보면 안됨.
     # 주어진 리스트가 정답인지 체크해야하기 때문에 그 순서를 바탕으로 검사
-    mat[k].sort(key = lambda x : rev[x])
+    mat[k].sort(key = lambda x : rev[x]) # mat[1] = 2,7,6 이었다면 7,6,2 순으로 정렬해줌 prev의 순서대로 정렬함
 rere = bfs(1)
 print(1 if rere == prev else 0)
