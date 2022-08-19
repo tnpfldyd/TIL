@@ -19,4 +19,3 @@ for i in range(T):
     if len(result[i]) == temp:
         print(temp)
         print(*result[i])
-# print(*max_len[0])
