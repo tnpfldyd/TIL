@@ -8,8 +8,6 @@ matrix = [list(input().rstrip()) for _ in range(r)]
 jcnt = [[0] * c for _ in range(r)]
 start = deque()
 dx, dy = [0,0,-1,1],[1,-1,0,0]
-Jtemp = deque()
-
 for i in range(r):
     for j in range(c):
         if matrix[i][j] == 'F':
@@ -18,7 +16,6 @@ for i in range(r):
     for j in range(c):
         if matrix[i][j] == 'J':
             start.append((i, j))
-            Jtemp.append((i, j))
             jcnt[i][j] = 1
             if (i == r-1 or i == 0) or (j == c-1 or j == 0):
                 print(jcnt[i][j])
