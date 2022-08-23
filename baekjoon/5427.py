@@ -1,6 +1,6 @@
 from collections import deque
 import sys
-sys.stdin = open('5427input.txt', 'r')
+# sys.stdin = open('5427input.txt', 'r')
 input = sys.stdin.readline
 T = int(input())
 for q in range(T):
