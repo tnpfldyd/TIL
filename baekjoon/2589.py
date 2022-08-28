@@ -1,6 +1,8 @@
 from collections import deque
+import sys
+input = sys.stdin.readline
 N, M = map(int, input().split())
-matrix = [list(input()) for _ in range(N)]
+matrix = [list(input().rstrip()) for _ in range(N)]
 dx, dy = [0,0,1,-1],[1,-1,0,0]
 temp = []
 for x in range(N):
