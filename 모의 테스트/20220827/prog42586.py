@@ -2,20 +2,19 @@ progresses = [93, 30, 55]
 speeds = [1, 30, 5]
 result = []
 cnt = 0
-while progresses:
+while len(progresses) > 0:
     if progresses[0] >= 100:
-        cnt += 1
         progresses.pop(0)
         speeds.pop(0)
+        cnt += 1
     else:
         result.append(cnt)
         cnt = 0
         for i in range(len(progresses)):
-            progresses[i] += speeds[i]
-else:
-    result.append(cnt)
-rere = []
-for j in result:
-    if j != 0:
-        rere.append(j)
-print(rere)
+            progresses[i] = progresses[i] + speeds[i]
+result.append(cnt)
+qw = []
+for i in range(len(result)):
+    if result[i] != 0:
+        qw.append(result[i])
+print(qw)
