@@ -1,0 +1,37 @@
+/* 아래에 CSS를 작성해주세요. */
+.head {
+  text-align: center;
+}
+.card {
+  float: left;
+  margin: 25px; 
+}
+.main_card {
+  width: 900px;
+  align-items: center;
+}
+.block {
+  display: block;
+  font-size: 10px;
+  padding-left: 15px;
+  color: gray
+}
+.name {
+  font-size: 15px;
+  padding-left: 15px;
+  letter-spacing: -1px;
+}
+.text {
+  display: inline-block;
+  color: gray;
+  font-size: 10px;
+  padding-left: 15px;
+  letter-spacing: -1px;
+}
+.card1 {
+  border-radius: 1rem;
+}
+.image {
+  width: 300px;
+  border-radius: 1rem;
+} 

@@ -1,0 +1,37 @@
+/* 아래에 CSS를 작성해주세요. */
+.head {
+  text-align: center;
+}
+.main_card {
+  width: 300px;
+  align-items: center;
+}
+.block {
+  font-size: 15px;
+  padding-left: 10px;
+  color: gray
+}
+.name {
+  padding-left: 10px;
+  letter-spacing: -1px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.text {
+  color: rgb(37, 37, 37);
+  font-size: 15px;
+  padding-left: 10px;
+  letter-spacing: -1px;
+}
+.image {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.blue {
+    color: rgb(0, 238, 255);
+}
+#price {
+    color: black;
+    padding-left: 10px;
+    font-size: 25px;
+}
