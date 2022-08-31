@@ -1,0 +1,42 @@
+/* 아래에 CSS를 작성해주세요. */
+* {
+    box-sizing: border-box;
+}
+.main_card {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.card {
+    width: 300px;
+}
+.img {
+    width: 100%;
+    border-radius: 0.5rem;
+}
+h3 {
+    word-spacing: -3px;
+    font-size: 15px;
+    margin: 0;
+    padding-left: 13px;
+}
+.blue {
+    color: aqua;
+}
+.font_15 {
+    font-size: 19px;
+    padding-left: 13px;
+}
+.seller {
+    color: grey;
+    font-size: 13px;
+    margin: 1;
+    padding-left: 13px;
+}
+.gray {
+    color: gray;
+}
+.last {
+    padding-left: 13px;
+    font-size: 13px;
+}

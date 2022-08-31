@@ -1,0 +1,38 @@
+/* 아래에 CSS를 작성해주세요. */
+* {
+    box-sizing: border-box;
+}
+h2 {
+    text-align: center;
+    margin: 0;
+}
+.small {
+    font-size: 12px;
+}
+.main-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 900px;
+}
+.card {
+    width: 300px;
+    margin-left: 2rem;
+}
+.img {
+    width: 100%;
+    border-radius: 1rem;
+}
+.pp {
+    color: gray;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+.text {
+    color: gray;
+    font-size: 8px;
+    word-spacing: -1px;
+}
+.name {
+    line-height: 2;
+}
