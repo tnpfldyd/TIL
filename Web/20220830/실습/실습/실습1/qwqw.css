@@ -1,0 +1,36 @@
+.head {
+  text-align: center;
+}
+.headfri {
+  margin: 0px;
+}
+.main-card {
+  width: 900px;
+  align-items: center;
+}
+.img {
+  width: 300px;
+  border-radius: 1rem;
+}
+.card {
+  margin: 25px;
+  float: left;
+}
+.gray {
+  display: block;
+  color: gray;
+  font-size: 12px;
+  padding-left: 15px;
+}
+.text {
+  display: inline-block;
+  color: gray;
+  font-size: 10px;
+  padding-left: 15px;
+  letter-spacing: -1px;
+}
+.name {
+  padding-left: 15px;
+  font-size: 15px;
+  margin: 0;
+}

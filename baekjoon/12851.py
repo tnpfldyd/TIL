@@ -2,22 +2,19 @@ from collections import deque
 import sys
 input = sys.stdin.readline
 N, K = map(int, input().rstrip().split())
-list_ = [[0, 0] for _ in range(100001)]
+list_ = [-1] * 100001
 start = deque()
 start.append(N)
-list_[N][0] = 0
-list_[N][1] = 1
+list_[N] = 0
+cnt = 0
 while start:
     x = start.popleft()
     if x == K:
-        print(list_[x][0])
-        print(list_[x][1])
-        break
+        cnt += 1
     for i in (x-1, x+1, x*2):
         if 0 <= i < 100001:
-            if list_[i][0] == 0:
-                list_[i][0] = list_[x][0] + 1
-                list_[i][1] = list_[x][1]
+            if list_[i] == -1 or list_[i] == list_[x] + 1:
+                list_[i] = list_[x] + 1
                 start.append(i)
-            elif list_[i][0] == list_[x][0] + 1:
-                list_[i][1] += list_[x][1]
+print(list_[K])
+print(cnt)
