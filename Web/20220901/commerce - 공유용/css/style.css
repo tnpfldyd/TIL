@@ -6,8 +6,6 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   min-width: 1280px;
   color: #333333;
-  border: 1px solid gray;
-  margin: 0.5rem;
 }
 .nav-box {
   display: flex;
