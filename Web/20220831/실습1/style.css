@@ -11,9 +11,9 @@ h2 {
 }
 .main-card {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     width: 900px;
+    margin-top: 50px;
 }
 .card {
     width: 300px;
