@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  min-width: 1280px;
+  color: #333333;
+  border: 1px solid gray;
+  margin: 0.5rem;
+}
+.nav-box {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 1rem;
+}
+.ul-box {
+  display: flex;
+  list-style: none;
+}
+.li-box {
+  margin: 0 0.5rem;
+}
+.li-link {
+  text-decoration: none;
+  color: black;
+}
+.main-img {
+  background: url("../assets/apparel.jpeg") no-repeat;
+  background-position: top;
+  width: 100%;
+  height: 700px;
+}
+.section {
+  width: 1280px;
+  justify-content: center;
+  margin: 2rem auto;
+}
+.card {
+  width: 500px;
+  margin: 0 1rem;
+}
+.img {
+  width: 100%;
+  border-radius: 1.5rem;
+}
+.Text {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.Text-left {
+  text-align: left;
+  padding-top: 1rem;
+  line-height: 2rem;
+}
+.article {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+}
+.footer-box {
+  display: flex;
+  justify-content: space-evenly;
+}
+.footer-card {
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+}
+.footer-text {
+  text-align: center;
+  font-size: 5px;
+  line-height: 1rem;
+}
+.foot-img {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+}
+.top-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+.btn-img {
+  width: 2rem;
+}
+.sales-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem auto;
+  width: 1280px;
+}
+.sales-item {
+  width: 380px;
+  border: 1px solid black;
+  margin: 1rem;
+}
+.sales-text {
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.8rem;
+  padding-bottom: 0;
+}
+.salse-left {
+  text-align: left;
+  padding: 1rem;
+  line-height: 2rem;
+  padding-left: 0.8rem;
+}
+.img-margin {
+  margin: 0.8rem;
+  width: auto;
+}
