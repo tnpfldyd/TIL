@@ -29,4 +29,3 @@ for i in course:
             answer.append(k)
 answer.sort()
 print(answer)
-print(dic)
