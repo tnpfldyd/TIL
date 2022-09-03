@@ -7,7 +7,4 @@ for i in range(len(text)):
         for j in ppap:
             result.pop()
         result.insert(i-3, 'P')
-if result == ['P']:
-    print('PPAP')
-else:
-    print('NP')
+print('PPAP' if result == ['P'] else 'NP')
