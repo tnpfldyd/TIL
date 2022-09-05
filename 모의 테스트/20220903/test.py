@@ -1,4 +1,5 @@
-import itertools
+from audioop import reverse
+import itertools, bisect
 info = ["java backend junior pizza 150","python frontend senior chicken 210",
 "python frontend senior chicken 150","cpp backend senior pizza 260",
 "java backend junior chicken 80","python backend senior chicken 50"]
@@ -26,20 +27,21 @@ for x in info2:
         else:
             new_info[asdf].append(score)
 answer = []
+for k, v in new_info.items():
+    v.sort()
+print(new_info)
 query = ["java and backend and junior and pizza 100",
 "python and frontend and senior and chicken 200",
 "cpp and - and senior and pizza 250",
 "- and backend and senior and - 150",
-"- and - and - and chicken 100","- and - and - and - 150","- and - and - and - 900"]
+"- and - and - and chicken 100","- and - and - and - 150"]
 for i in query:
     qw = i.split(' and ')
     qw[-1], scope = qw[-1].split()
+    qw = ''.join(qw)
     scope = int(scope)
     cnt = 0
-    for j in new_info.get(''.join(qw)):
-        if j >= scope:
-            cnt += 1
-        else:
-            break
+    if qw in new_info:
+        cnt = len(new_info[qw]) - bisect.bisect_left(new_info[qw], scope)
     answer.append(cnt)
 print(answer)
