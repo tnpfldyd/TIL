@@ -7,7 +7,7 @@ while True:
     if N == 0:
         break
     matrix = [list(map(int,input().rstrip().split())) for _ in range(N)]
-    visited = [[9999999]*N for _ in range(N)]
+    visited = [[140625]*N for _ in range(N)]
     start = []
     heappush(start, [matrix[0][0], 0, 0])
     visited[0][0] = matrix[0][0]
@@ -21,7 +21,7 @@ while True:
             nx, ny = x + dx[i], y + dy[i]
             if 0 <= nx < N and 0 <= ny < N:
                 new_stone = stone + matrix[nx][ny]
-                if new_stone < visited[nx][ny]:
+                if visited[nx][ny] > new_stone:
                     visited[nx][ny] = new_stone
                     heappush(start, [new_stone, nx, ny])
     cnt += 1
