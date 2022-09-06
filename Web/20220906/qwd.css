@@ -1,0 +1,13 @@
+.back {
+    background: url(./earth-gf3fe7ccfa_1920.jpg);
+    background-position: top;
+    width: 100%;
+}
+.qw {
+    display: inline-block;
+    margin: 0 0.5rem;
+  }
+.qw:hover {
+    animation: rotateIn;
+    animation-duration: 2s;
+}
