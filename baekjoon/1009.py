@@ -19,4 +19,4 @@ for _ in range(T):
         if b == 0:
             print((a**4) % 10 % 10 % 10)
         else:
-            print((a**b) % 10 % 10 % 10)
+            print((a**b) % 10 % 10 % 10) 
