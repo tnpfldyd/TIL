@@ -1,0 +1,12 @@
+.box_item {
+    float: left;
+}
+.aw:hover img{
+    transform: scale(1.1);
+}
+.aw {
+    overflow: hidden;
+}
+.aw img {
+    transition: all 0.2s linear;
+}
