@@ -1,18 +1,14 @@
 N = int(input())
 S = int(input())
 Text = input()
-
+test = ['I']
+for i in range(N):
+    test = test + ['O', 'I']
+result = []
 cnt = 0
-temp = 0
-x = 1
-while x < S-1:
-    if Text[x-1] == 'I' and Text[x] == 'O' and Text[x+1] == 'I':
-        temp += 1
-        if temp == N:
-            temp -= 1
+for i in Text:
+    result.append(i)
+    if i == 'I':
+        if result[-len(test):] == test:
             cnt += 1
-        x += 1
-    else:
-        temp = 0
-    x += 1
 print(cnt)
