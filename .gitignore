@@ -227,3 +227,5 @@ $RECYCLE.BIN/
 *.txt
 *.csv
 *.pdf
+server-venv/
+test-venv/
