@@ -27,8 +27,8 @@
   <p>필요한 번호의 갯수를 입력 후 행운 번호 받기 버튼을 눌러주세요.(최대 6개)</p>
   <input type="number">
   <button>행운 번호 받기</button>
-  <!-- <table>
-  </table> -->
+  <table>
+  </table>
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
   <script>
     const button = document.querySelector('button')
@@ -65,27 +65,27 @@
       }
       body.appendChild(ballContainer)
     })
-    // const table = document.querySelector('table')
-    // const check_box = document.createElement('div')
-    // check_box.classList.add('ball-container')
-    // for (let i = 1; i < 46; i++) {
-    //   const check = document.createElement('input')
-    //   check.type = 'checkbox'
-    //   check.name = String(i)
-    //   check.value = String(i)
-    //   const check_name = document.createElement('p')
-    //   check_name.innerText = String(i)
-    //   check_box.appendChild(check)
-    //   check_box.appendChild(check_name)
-    // }
-    // table.appendChild(check_box)
-    // button.addEventListener('click', function() {
-    //   for (let i = 1; i < 46; i++) {
-    //     if (document.getElementsByName(String(i)).checked == true) {
-    //       console.log(i);
-    //     }
-    //   }
-    // })
+    const table = document.querySelector('table')
+    const check_box = document.createElement('div')
+    check_box.classList.add('ball-container')
+    for (let i = 1; i < 46; i++) {
+      const check = document.createElement('input')
+      check.type = 'checkbox'
+      check.name = String(i)
+      check.value = String(i)
+      const check_name = document.createElement('p')
+      check_name.innerText = String(i)
+      check_box.appendChild(check)
+      check_box.appendChild(check_name)
+    }
+    table.appendChild(check_box)
+    button.addEventListener('click', function() {
+      for (let i = 1; i < 46; i++) {
+        if (document.getElementsByName(String(i)).checked == true) {
+          console.log(i);
+        }
+      }
+    })
   </script>
 </body>
 </html>
