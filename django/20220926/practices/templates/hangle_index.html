@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <form action="/hangle">
+    <label for="inputname" class="form-label mt-5">문단의 수를 입력하세요.</label>
+    <input type="number" class="form-control" id="inputname" style="width: 400px;" name="mundan">
+    <label for="inputname2" class="form-label mt-3">단어의 수를 입력하세요.</label>
+    <input type="number" class="form-control" id="inputname2" style="width: 400px;" name="danu">
+    <button type="submit" class="btn btn-primary my-3">생성</button>
+  </form>
+</div>
+{% endblock %}

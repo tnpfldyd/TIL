@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <form action="/time_machine">
+    <label for="inputname" class="form-label mt-5">이름을 입력하세요.</label>
+    <input type="text" class="form-control" id="inputname" style="width: 400px;" name="long">
+    <button type="submit" class="btn btn-primary my-3">전생 확인하기</button>
+  </form>
+</div>
+{% endblock %}

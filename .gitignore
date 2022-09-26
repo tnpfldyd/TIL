@@ -229,3 +229,5 @@ $RECYCLE.BIN/
 *.pdf
 server-venv/
 test-venv/
+secrets.json
+day3-venv/
