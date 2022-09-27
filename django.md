@@ -38,8 +38,12 @@
   >
   > '.' 은 현재 폴더 라는 뜻
 
-  - 서버 실행 방법![image-20220921140732018](django.assets/image-20220921140732018.png)
+  - 앱 만드는법
 
+  > python manage.py startapp [앱 이름]
+  
+  - 서버 실행 방법![image-20220921140732018](django.assets/image-20220921140732018.png)
+  
   > 파이썬으로 manage.py 파일을 runserver 명령어로 실행하면 됨.
   >
   > 서버를 종료시키려면 Ctrl + c 를 누르면 서버가 닫힌다.

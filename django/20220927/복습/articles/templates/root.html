@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for guest in guestbook %}
+<h2>{{guest.content}}</h2>
+{% endfor %}
+<form action="/articles/create/">
+    <input type="text" name="long">
+    <button type="submit">제출</button>
+</form>
+{% endblock %}
