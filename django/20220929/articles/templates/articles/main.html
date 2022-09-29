@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <h1>익명 게시판</h1>
+  <table class="table">
+    <thead>
+      <tr class="table-light">
+        <th scope="col">번호</th>
+        <th scope="col">제목</th>
+        <th scope="col">작성일</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for article in articles %}
+      <tr class="table-light">
+        <th scope="row">{{article.id}}</th>
+        <td><a href="{% url 'articles:detail' article.pk %}" class="text-decoration-none">{{article.title}}</a></td>
+        <td>{{article.created_at|date:"Y-m-d"}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="text-end">
+  <a href="{% url 'articles:create' %}"><button type="button" class="btn btn-outline-primary">글 작성</button></a>
+  </div>
+  <div class="text-center">
+    <div class="btn-group me-2" role="group" aria-label="First group">
+      {% for re in result %}
+      <a href="{{re}}"><button type="button" class="btn btn-primary">{{ re }}</button></a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <form action="{% url 'articles:create2' %}">
+    <div class="mb-3 my-5">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">제목</span>
+        <input type="text" class="form-control" placeholder="제목을 적어 주세요." aria-label="제목을 적어 주세요." aria-describedby="basic-addon1" name="title">
+      </div>
+      <textarea class="form-control" rows="30" name="content"></textarea>
+      <div class="input-group mt-3">
+        <span class="input-group-text" id="basic-addon2">비밀번호</span>
+        <input type="password" class="form-control" placeholder="비밀번호를 적어 주세요." aria-label="비밀번호를 적어 주세요." aria-describedby="basic-addon2" name="password">
+      </div>
+      <div class="text-end mt-3">
+      <input type="submit" class="btn btn-outline-primary" value="등록">
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <form action="{% url 'articles:edit2' temp.pk %}">
+    <div class="mb-3 my-5">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">제목</span>
+        <textarea class="form-control" rows="1" name="title">{{temp.title}}</textarea>
+      </div>
+      <textarea class="form-control" rows="30" name="content">{{temp.content}}</textarea>
+
+      <div class="text-end mt-3">
+      <input type="submit" class="btn btn-outline-primary" value="수정">
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

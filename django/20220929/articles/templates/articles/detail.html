@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="mb-3 my-5">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">제목</span>
+      <span class="form-control bg-white">{{temp.title}}</span>
+    </div>
+    <p class="form-control">{{temp.content}}</p>
+    <div class="input-group mt-3">
+      <span class="input-group-text" id="basic-addon2">비밀번호</span>
+      <input type="password" class="form-control" placeholder="비밀번호를 적어 주세요." aria-label="비밀번호를 적어 주세요." aria-describedby="basic-addon2" id="password">
+    </div>
+    <div class="text-end mt-3">
+      <a href="{% url 'articles:edit' temp.pk %}" id = 'a1'><button class="btn btn-outline-primary">수정</button></a>
+      <a href="{% url 'articles:delete' temp.pk %}" id = 'a2'><button class="btn btn-outline-danger">삭제</button></a>
+    </div>
+    <input type="hidden" id="myVar" name="variable" value="{{ temp.password }}">
+  </div>
+</div>
+<script type="text/javascript">
+  const btn = document.getElementById('a1');
+  const btn2 = document.getElementById('a2');
+  const user_password = document.getElementById('password');
+  const password = document.getElementById('myVar');
+  btn.addEventListener('click', function() {
+    if (user_password.value !== password.value) {
+      alert('비밀번호가 다릅니다.')
+      event.preventDefault()
+    }
+  })
+  btn2.addEventListener('click', function() {
+    if (user_password.value !== password.value) {
+      alert('비밀번호가 다릅니다.')
+      event.preventDefault()
+    }
+  })
+</script>
+{% endblock %}
