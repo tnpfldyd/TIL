@@ -8,12 +8,6 @@ def solution(lottos, win_nums):
         else:
             zero += 1
     answer = []
-    if cnt + zero > 0:
-        answer.append(7 - (cnt + zero))
-    else:
-        answer.append(6)
-    if cnt > 0:
-        answer.append(7 - cnt)
-    else:
-        answer.append(6)
+    answer.append(7 - (cnt + zero) if cnt + zero > 0 else 6)
+    answer.append(7 - cnt if cnt > 0 else 6)
     return answer
