@@ -1,3 +1,4 @@
+from datetime import date
 from django.shortcuts import render,redirect
 from .models import Todo
 # Create your views here.
@@ -10,8 +11,13 @@ def index(request):
 
 def create(request):
     content = request.GET
-    if content['priority'] == 'Open this select menu':
+    print(content['deadline'])
+    if content['priority'] == 'Open this select menu' and content['deadline'] == '':
+        Todo.objects.create(content=content['content'])
+    elif content['priority'] == 'Open this select menu':
         Todo.objects.create(content=content['content'], deadline=content['deadline'])
+    elif content['deadline'] == '':
+        Todo.objects.create(content=content['content'], priority=content['priority'])
     else:
         Todo.objects.create(content=content['content'], priority=content['priority'], deadline=content['deadline'])
     return redirect('todos:index')

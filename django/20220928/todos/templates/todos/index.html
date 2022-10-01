@@ -4,12 +4,12 @@
   <form action="{% url 'todos:create' %}">
     <div class="input-group mb-3">
       <span class="input-group-text" id="basic-addon1">할 일</span>
-      <input type="text" class="form-control" placeholder="할 일을 적어주세요." aria-label="할 일을 적어주세요." aria-describedby="basic-addon1" name="content">
+      <input type="text" class="form-control" placeholder="할 일을 적어 주세요." aria-label="할 일을 적어 주세요." aria-describedby="basic-addon1" name="content">
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text" id="basic-addon2">우선 순위</span>
       <select class="form-select" aria-label="Default select example" name="priority">
-        <option selected>Open this select menu</option>
+        <option selected>우선 순위를 선택해 주세요.</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -19,10 +19,10 @@
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text" id="basic-addon3">마감 기한</span>
-      <input type="date" class="form-control" name="deadline">
+      <input type="date" class="form-control" name="deadline", id="dt">
     </div>
     <div class="d-grid">
-      <input type="submit" class="btn btn-outline-primary" value="할 일 추가">
+      <input type="submit" class="btn btn-outline-primary" value="할 일 추가" id="bt">
     </div>
   </form>
   <table class="table">
@@ -38,26 +38,50 @@
       </tr>
     </thead>
     {% for todo in todos%}
-    {% if not todo.completed %}
+    {% if todo.deadline == none and not todo.completed %}
     <tbody>
       <tr>
         <th scope="row">{{ todo.priority }}</th>
         <td>{{ todo.content }}</td>
-        <td>{{ todo.created_at }}</td>
-        <td>{{ todo.deadline }}</td>
-        <td>{{ todo.completed }}</td>
+        <td>{{ todo.created_at.year }}년 {{ todo.created_at.month }}월 {{ todo.created_at.day }}일</td>
+        <td>0000년 00월 00일</td>
+        <td class="fw-bold text-danger">{{ todo.completed }}</td>
         <td><a href="{% url 'todos:update' todo.pk %}" class="btn btn-primary">변경</a></td>
         <td><a href="{% url 'todos:delete' todo.pk %}" class="btn btn-danger">삭제</a></td>
       </tr>
     </tbody>
-    {% else %}
+    {% elif todo.deadline == none and todo.completed %}
     <tbody>
       <tr>
         <th scope="row"><del>{{ todo.priority }}</del></th>
         <td><del>{{ todo.content }}</del></td>
-        <td><del>{{ todo.created_at }}</del></td>
-        <td><del>{{ todo.deadline }}</del></td>
-        <td><del>{{ todo.completed }}</del></td>
+        <td><del>{{ todo.created_at.year }}년 {{ todo.created_at.month }}월 {{ todo.created_at.day }}일</del></td>
+        <td><del>0000년 00월 00일</del></td>
+        <td class="fw-bold text-primary"><del>{{ todo.completed }}</del></td>
+        <td><a href="{% url 'todos:update' todo.pk %}" class="btn btn-primary">변경</a></td>
+        <td><a href="{% url 'todos:delete' todo.pk %}" class="btn btn-danger">삭제</a></td>
+      </tr>
+    </tbody>
+    {% elif not todo.completed %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ todo.priority }}</th>
+        <td>{{ todo.content }}</td>
+        <td>{{ todo.created_at.year }}년 {{ todo.created_at.month }}월 {{ todo.created_at.day }}일</td>
+        <td>{{ todo.deadline.year }}년 {{ todo.deadline.month }}월 {{ todo.deadline.day }}일</td>
+        <td class="fw-bold text-danger">{{ todo.completed }}</td>
+        <td><a href="{% url 'todos:update' todo.pk %}" class="btn btn-primary">변경</a></td>
+        <td><a href="{% url 'todos:delete' todo.pk %}" class="btn btn-danger">삭제</a></td>
+      </tr>
+    </tbody>
+    {% elif todo.completed %}
+    <tbody>
+      <tr>
+        <th scope="row"><del>{{ todo.priority }}</del></th>
+        <td><del>{{ todo.content }}</del></td>
+        <td><del>{{ todo.created_at.year }}년 {{ todo.created_at.month }}월 {{ todo.created_at.day }}일</del></td>
+        <td><del>{{ todo.deadline.year }}년 {{ todo.deadline.month }}월 {{ todo.deadline.day }}일</del></td>
+        <td class="fw-bold text-primary"><del>{{ todo.completed }}</del></td>
         <td><a href="{% url 'todos:update' todo.pk %}" class="btn btn-primary">변경</a></td>
         <td><a href="{% url 'todos:delete' todo.pk %}" class="btn btn-danger">삭제</a></td>
       </tr>
