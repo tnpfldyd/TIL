@@ -24,4 +24,4 @@ if new_id in registered_list:
     answer = answer+temp
 else:
     answer += new_id
-print(registered_list)
+print(answer)

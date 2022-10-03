@@ -21,6 +21,7 @@ while start:
         if visited[k] > nx:
             visited[k] = nx
             heappush(start, [nx, k])
+print(visited)
 for i in visited:
     if i != INF:
         print(i)
