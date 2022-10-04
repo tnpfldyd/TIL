@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'articles:edit' article.pk %}" method="POST">
+  {{ article_form.as_p }}
+  {% csrf_token %}
+  <input type="submit" value="수정">
+</form>
+{% endblock %}

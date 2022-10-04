@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>제목 {{ info.title }}</h4>
+<p>작성 시간 {{ info.updated_at }}</p>
+<p>내용 {{ info.content }}</p>
+<a href="{% url 'articles:edit' info.pk %}"><button class="btn btn-primary">수정</button></a>
+{% endblock %}

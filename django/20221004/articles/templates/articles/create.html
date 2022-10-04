@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'articles:create' %}" method="POST">
+  {{ article_form.as_p }}
+  {% csrf_token %}
+  <input type="submit" value="제출">
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{% url 'articles:create' %}">글 쓰기</a>
+{% for temp in temps %}
+<h3><a href="{% url 'articles:detail' temp.pk %}">{{temp.title}}</a></h3>
+<p>{{temp.created_at}}|{{temp.updated_at}}</p>
+{% endfor %}
+{% for btn in btns %}
+  <a href="{{btn}}"><button type="button" class="btn btn-outline-dark">{{ btn }}</button></a>
+{% endfor %}
+{% endblock %}
