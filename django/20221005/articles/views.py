@@ -1,0 +1,58 @@
+from django.shortcuts import render, redirect
+from .forms import ArticleForm
+from .models import Article
+import math
+# Create your views here.
+
+def index(request, num):
+    temp = Article.objects.order_by('-updated_at')[(num-1)*10:num*10]
+    btn = math.ceil(Article.objects.all().count()/10)
+    btn_tong = []
+    for i in range(1, btn+1):
+        btn_tong.append(i)
+    context = {
+        'temps': temp,
+        'btns': btn_tong,
+    }
+    return render(request, 'articles/index.html', context)
+
+def create(request, pk):
+    if pk == 0:
+        if request.method == 'POST':
+            article_form = ArticleForm(request.POST)
+            if article_form.is_valid():
+                article_form.save()
+                temp = Article.objects.order_by('-id')[0]
+                return redirect('articles:detail', temp.pk)
+        else:
+            article_form = ArticleForm()
+        context = {
+            'article_form': article_form,
+        }
+        return render(request, 'articles/create.html', context)
+    else:
+        article = Article.objects.get(pk=pk)
+        if request.method == 'POST':
+            article_form = ArticleForm(request.POST, instance=article)
+            if article_form.is_valid():
+                article_form.save()
+                return redirect('articles:detail', article.pk)
+        else:
+            article_form = ArticleForm(instance=article)
+        context = {
+            'article_form': article_form,
+            'info': article
+        }
+        return render(request, 'articles/edit.html', context)
+
+def detail(request, pk):
+    info = Article.objects.get(pk=pk)
+    context = {
+        'info':info,
+    }
+    return render(request, 'articles/detail.html', context)
+
+def delete(request, pk):
+    article = Article.objects.get(pk=pk)
+    article.delete()
+    return redirect('articles:index', 1)

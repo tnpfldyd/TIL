@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="text-center">{{info.pk}}번글</h3>
+<br>
+<h5>제목<br>{{info.title}}</h5>
+<p>최초 작성시간 {{info.created_at}} | 최근 수정시간{{info.updated_at}}</p>
+<p>내용<br>{{info.content}}</p>
+<div class="text-end">
+<a href="{% url 'articles:create' info.pk %}"><button class="btn btn-primary">수정</button></a>
+<a href="{% url 'articles:delete' info.pk %}"><button class="btn btn-danger">삭제</button></a>
+</div>
+{% endblock %}

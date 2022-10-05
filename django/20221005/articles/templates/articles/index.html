@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center">
+  <h1>게시판</h1>
+  {% load static %}
+  <div class="text-end"><a href="{% url 'articles:create' 0 %}"><img src="{% static 'Writeicon.png' %}" style="width: 80px;"></a></div>
+</div>
+<div class="text-start">
+{% for temp in temps %}
+<h5>제목 <a href="{% url 'articles:detail' temp.pk %}">{{temp.title}}</a></h5>
+<p>최초 작성시간 {{temp.created_at}} | 최근 수정시간{{temp.updated_at}}</p>
+{% endfor %}
+</div>
+<div class="text-center">
+{% for btn in btns %}
+  <a href="{{btn}}"><button type="button" class="btn btn-outline-dark">{{ btn }}</button></a>
+{% endfor %}
+</div>
+{% endblock %}
