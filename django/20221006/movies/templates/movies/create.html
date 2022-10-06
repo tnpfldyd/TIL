@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load django_bootstrap5 %}
+<h2 class="text-center">{{ request.resolver_match.url_name }}</h2>
+<form action="", method="POST">
+  {% csrf_token %}
+  {% bootstrap_form movie_form %}
+  {# movie_form.as_p #}
+  <div class="text-end">
+    {% if request.resolver_match.url_name == 'create' %}
+    {% bootstrap_button button_type="submit" content="작성" %}
+    {% else %}
+    {% bootstrap_button button_type="submit" content="수정" %}
+    {% endif %}
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center">{{ request.resolver_match.url_name }}</h2>
+<div class="d-flex justify-content-between bg-light rounded"><h3>{{info.title}}</h3> <p>{{info.running_time}}분</p></div>
+<div class="bg-light rounded">{{info.summary}}</div>
+<div class="text-end">
+  <a href="{% url 'movies:update' info.pk %}"><button class="btn btn-primary">수정</button></a>
+  <a href="{% url 'movies:delete' info.pk %}"><button class="btn btn-danger">삭제</button></a>
+</div>
+{% endblock %}
