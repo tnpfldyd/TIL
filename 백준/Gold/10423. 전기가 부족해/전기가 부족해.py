@@ -13,7 +13,6 @@ for i in K_list:
     matrix[0].append((0, i))
     heappush(start, [0, i])
 visited = [False] * (N+1)
-visited[0] = True
 cnt, temp = 0, 0
 while start:
     x, node = heappop(start)
