@@ -10,10 +10,9 @@ for i in range(M):
     a -= 1; b -= 1
     matrix[a].append((t, b, i))
     matrix[b].append((t, a, i))
-switch = set()
-def heap(zero):
+def heap(edge):
     start = []
-    heappush(start, [0, zero])
+    heappush(start, [0, 0])
     visited = [INF] * N
     visited[0] = 0
     while start:
@@ -22,12 +21,12 @@ def heap(zero):
             continue
         for k, v, l in matrix[node]:
             nx = x + k
-            if l not in switch and visited[v] > nx:
+            if l != edge and visited[v] > nx:
                 visited[v] = nx
                 heappush(start, [nx, v])
     return visited
 edges = set()
-visited = heap(0)
+visited = heap(-1)
 start = deque()
 start.append(N-1)
 while start:
@@ -40,11 +39,9 @@ while start:
             edges.add(l)
 max_cnt = 0
 for i in edges:
-    switch.add(i)
-    temp = heap(0)
+    temp = heap(i)
     if max_cnt < temp[N-1]:
         max_cnt = temp[N-1]
-    switch.remove(i)
 if max_cnt == INF:
     print(-1)
 else:
