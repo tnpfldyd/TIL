@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>{{ info.username }} 님의 정보
+  <br>
+  성: {{ info.first_name }}
+  <br>
+  이름: {{ info.last_name }}
+  <br>
+  이메일: {{ info.email }}
+</p>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">pk</th>
+      <th scope="col">이름</th>
+      <th scope="col">이메일</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for info in infos %}
+    <tr>
+      <th scope="row">{{ info.id }}</th>
+      <td><a href="{% url 'accounts:detail' info.pk %}" class="text-decoration-none">{{ info.username }}</a></td>
+      <th scope="row">{{ info.email }}</th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
