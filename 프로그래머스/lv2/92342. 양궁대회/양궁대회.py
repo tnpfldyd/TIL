@@ -8,7 +8,7 @@ def solution(n, info):
             i = '0' + i
         i = i[::-1]
         lie = 0
-        ap = 0
+        ape = 0
         for j in range(10):
             if i[j] == '1':
                 temp[j] = info[j] + 1
@@ -19,14 +19,15 @@ def solution(n, info):
                 if info[j] == 0 and temp[j] == 0:
                     continue
                 else:
-                    ap += 10 - j
+                    ape += 10 - j
         if sum(temp) < n:
             temp[10] = n - sum(temp)
         elif sum(temp) > n:
             continue
-        if lie > ap and (lie - ap) >= max_cnt:
-            max_cnt = lie-ap
+        if lie > ape and (lie - ape) >= max_cnt:
+            max_cnt = lie-ape
             result = temp
     if max_cnt == 0:
         return [-1]
     return result
+print(solution(1,[1,0,0,0,0,0,0,0,0,0,0]))
