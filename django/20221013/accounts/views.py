@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
+from accounts.models import CustomEmail
 from .forms import CustomUsercreationForm, CustomUserChangeForm
 from django.contrib.auth import login, logout
 from django.contrib.auth import get_user_model,update_session_auth_hash
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
+from .forms import CustomEmailForm
 # Create your views here.
 
 def index(request):
@@ -34,6 +36,7 @@ def signin(request):
     form = AuthenticationForm(request, data=request.POST or None)
     if form.is_valid():
         login(request, form.get_user())
+        print(request.GET)
         return redirect(request.GET.get('next') or 'accounts:index')
     context = {
         'form': form
@@ -74,3 +77,36 @@ def delete(request):
     request.user.delete()
     logout(request)
     return render(request, 'accounts/index.html')
+
+@login_required
+def email_send(request, send_pk):
+    if request.method == 'POST':
+        form = CustomEmailForm(request.POST, request.FILES)
+        info = get_user_model().objects.get(pk=send_pk)
+        print(request.POST,request.FILES)
+        if form.is_valid():
+            from_info = get_user_model().objects.filter(email=request.POST['to_email_address'])
+            for i in from_info:
+                temp = form.save(commit=False)
+                temp.recipient_id = i.id
+                temp.from_name = info.username
+                temp.from_email = info.email
+                temp.save()
+            return redirect('accounts:index')
+    else:
+        form = CustomEmailForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'accounts/email_send.html', context)
+
+@login_required
+def email_box(request, pk):
+    print(request.user.id)
+    info = get_user_model().objects.get(pk=pk)
+    temp = CustomEmail.objects.filter(recipient_id=info.pk)
+    context = {
+        'info': info,
+        'temp': temp,
+    }
+    return render(request, 'accounts/email_box.html', context)

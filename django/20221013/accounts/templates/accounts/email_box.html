@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">보낸 이</th>
+      <th scope="col">제목</th>
+      <th scope="col">보낸 시간</th>
+      <th scope="col">보낸 시간</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tem in temp %}
+    <tr>
+      <th scope="row">{{ tem.from_name }}</th>
+      <td scope="row">{{ tem.title }}</td>
+      <th scope="row">{{ tem.created_at }}</th>
+      <th scope="row">{{ tem.img }}</th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

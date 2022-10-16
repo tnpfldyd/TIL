@@ -42,6 +42,8 @@
               {{ user }}님 환영합니다.
             </button>
             <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'accounts:email_box' user.id %}">이메일 박스</a></li>
+              <li><a class="dropdown-item" href="{% url 'accounts:email_send' user.id %}">이메일 쓰기</a></li>
               <li><a class="dropdown-item" href="{% url 'accounts:detail' user.id %}">회원정보</a></li>
               <li><a class="dropdown-item" href="{% url 'accounts:update' user.id %}">회원정보수정</a></li>
               <li><a class="dropdown-item" href="{% url 'accounts:password' %}">비밀번호변경</a></li>
