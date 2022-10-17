@@ -19,14 +19,14 @@ def create(request):
 
 def detail(request, pk):
     return render(request, 'articles/detail.html', {'content': Profile.objects.get(pk=pk)})
-
+    
 def update(request, pk):
     temp = Profile.objects.get(pk=pk)
     form = ProfileForm(request.POST or None, request.FILES or None, instance=Profile.objects.get(pk=pk))
     if form.is_valid():
-        if temp.image:
+        if (temp.image and request.FILES.get('image')) or request.POST.get('image-clear'):
             os.remove(temp.image.path)
-        if temp.thumbnail:
+        if (temp.thumbnail and request.FILES.get('thumbnail')) or request.POST.get('thumbnail-clear') :
             os.remove(temp.thumbnail.path)
         form.save()
         return redirect('articles:detail', pk)
