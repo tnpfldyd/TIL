@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load django_bootstrap5 %}
+{% if article.image %}
+  <img src="{{ article.image.url }}" alt="{{ article.image.url }}">
+{% endif %}
+  <h4>제목 {{ article.title }}</h4>
+  <h6>내용 {{ article.content }}</h6>
+
+<form action="{% url 'articles:comments' article.pk %}" method="POST">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  <div class="text-end">
+    {% bootstrap_button type='submit' class='btn btn-primary' content='작성' %}
+  </div>
+</form>
+<hr>
+<p>총 댓글 수 {{ article.comment_set.all|length }}개</p>
+{% for comment in article.comment_set.all %}
+<div class="d-flex justify-content-between mt-3">
+<p>{{comment.content}}</p><div>{{comment.created_at}}<a class="btn btn-danger" href="{% url 'articles:comments_delete' article.id comment.id %}">삭제</a></div>
+</div>
+{% endfor %}
+{% endblock %}
