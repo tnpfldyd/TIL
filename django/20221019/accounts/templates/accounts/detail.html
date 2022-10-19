@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load django_bootstrap5 %}
+{{info.username}} 님이 쓴 글
+<br>
+총 {{ info.article_set.all|length }}개
+{% for article in info.article_set.all %}
+<a href="{% url 'articles:detail' article.id %}"><p>{{article.title}}</p></a>
+{% endfor %}
+<hr>
+{{info.username}} 님이 쓴 댓글
+<br>
+총 {{ info.comment_set.all|length }}개
+{% for comment in info.comment_set.all %}
+<a href="{% url 'articles:detail' comment.article_id %}"><p>{{comment.content}}</p></a>
+{% endfor %}
+{% endblock %}

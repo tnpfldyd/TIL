@@ -31,11 +31,13 @@
           {% if request.user.is_authenticated %}
             <div class="d-flex justify-content-center">
               <p class="my-auto mx-2">{{ request.user }}님</p>
+              <a href="{% url 'accounts:index' %}" class="my-auto mx-2">회원 목록</a>
               <a href="{% url 'accounts:mypage' %}" class="my-auto mx-2">mypage</a>
               <a href="{% url 'accounts:logout' %}" class="my-auto mx-2">로그아웃</a>
             </div>
           {% else %}
             <div class="d-flex justify-content-center">
+              <a href="{% url 'accounts:index' %}" class="my-auto mx-2">회원 목록</a>
               <a href="{% url 'accounts:signup' %}" class="my-auto mx-2">회원가입</a>
               <a href="{% url 'accounts:login' %}" class="my-auto mx-2">로그인</a>
             </div>

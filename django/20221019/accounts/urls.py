@@ -1,11 +1,11 @@
 from django.urls import path
 from . import views
-# Create your views here.
-
 app_name = 'accounts'
 urlpatterns = [
+    path('', views.index, name='index'),
     path('signup/', views.signup, name='signup'),
     path('login/', views.signin, name='login'),
     path('logout/', views.signout, name='logout'),
-    path('mypage/', views.mypage, name='mypage'),
+    path('<int:pk>/', views.detail, name='detail'),
+    path('mapage/', views.mypage, name='mypage'),
 ]

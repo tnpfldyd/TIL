@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load django_bootstrap5 %}
+{{article.user.username}}
+{{article.title}}
+{{article.content}}
+{{article.updated_at}}
+{% if article.image %}
+<img src="{{ article.image.url }}">
+{% endif %}
+{% if not request.user.is_anonymous %}
+<form action="{% url 'articles:comment' article.pk %}" method="POST">
+{% csrf_token %}
+{% bootstrap_form form %}
+{% bootstrap_button button_type='submit' content='작성' %}
+</form>
+{% endif %}
+{% for comment in article.comment_set.all %}
+<div class="d-flex justify-content-between">
+<p>{{comment.content}}{{comment.user.username}}</p> 
+<div>{{comment.created_at}}
+  {% if request.user.id == comment.user_id %}
+  <a class='btn btn-danger' href="{% url 'articles:comment_delete' article.pk comment.pk %}">삭제</a>
+  {% endif %}
+</div>
+</div>
+  {% endfor %}
+
+{% endblock %}
