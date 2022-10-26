@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>{{ user.username }}님의 프로필</h1>
+<p>{{ user.email }} | {{ user.full_name }}</p>
+<div class="row">
+  <div class="col-6">
+    <h3>작성한 글</h3>
+    <p class="text-muted">{{ user.article_set.count }}개를 작성하였습니다.</p>
+    {% for article in user.article_set.all %}
+    <p>
+      {{ forloop.counter }}
+      <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+    </p>
+    {% endfor %}
+  </div>
+  <div class="col-6">
+    <h3>작성한 댓글</h3>
+    <p class="text-muted">{{ user.comment_set.count }}개를 작성하였습니다.</p>
+    {% for comment in user.comment_set.all %}
+    <p>
+      {{ forloop.counter }}
+      <a href="{% url 'articles:detail' comment.article_id %}">{{ comment.content }}</a>
+    </p>
+    {% endfor %}
+  </div>
+  <div class="col-6">
+    <h3>좋아요 누른 글</h3>
+    <p class="text-muted">{{ user.like_articles.count }}개를 작성하였습니다.</p>
+    {% for article in user.like_articles.all %}
+    <p>
+      {{ forloop.counter }}
+      <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+    </p>
+    {% endfor %}
+  </div>
+</div>
+<div>
+  팔로잉 : <p id='followings-cnt'>{{ user.followings.all|length }}</p> / 팔로워 : <p id='followers-cnt'>{{ user.followers.all|length }}</p>
+</div>
+{% if user == request.user %}
+<a href="{% url 'accounts:update' %}">프로필 편집</a>
+{% else %}
+<div>
+  <form id="follow-form" data-user-id="{{user.pk}}">
+    {% csrf_token %}
+    {% if request.user in user.followers.all %}
+    <input id='follow-btn' class='btn btn-outline-danger' type="submit" value='팔로우 취소'>
+    {% else %}
+    <input id='follow-btn' class='btn btn-outline-primary' type="submit" value='팔로우'>
+    {% endif %}
+  </form>
+</div>
+{% endif %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  const followForm = document.querySelector('#follow-form')
+  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+  const followBtn = document.querySelector('#follow-btn')
+  followForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    axios({
+      method: 'post',
+      url: `/accounts/${event.target.dataset.userId}/follow/`,
+      headers: {'X-CSRFToken': csrftoken},
+      data: new FormData()
+    })
+    .then(response => {
+      if (response.data.isFollow === true) {
+        const followBtn = document.querySelector('#follow-btn')
+        followBtn.classList.remove('btn-outline-primary')
+        followBtn.classList.add('btn-outline-danger')
+        followBtn.value = '팔로우 취소'
+      }
+      else {
+        const followBtn = document.querySelector('#follow-btn')
+        followBtn.classList.remove('btn-outline-danger')
+        followBtn.classList.add('btn-outline-primary')
+        followBtn.value = '팔로우'
+      }
+      const followingsCnt = document.querySelector('#followings-cnt')
+      const followersCnt = document.querySelector('#followers-cnt')
+      followingsCnt.innerText = response.data.followingsCount
+      followersCnt.innerText = response.data.followersCount
+    })
+  })
+</script>
+{% endblock body %}
