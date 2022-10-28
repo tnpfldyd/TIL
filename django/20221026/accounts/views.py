@@ -88,3 +88,9 @@ def follow(request, pk):
         'followingsCount': user.followings.count(),
     }
     return JsonResponse(context)
+
+def test(request):
+    return render(request, 'accounts/test.html')
+
+def test2(request):
+    return render(request, 'accounts/test2.html')

@@ -5,7 +5,6 @@ max_cnt = 0
 for i in range(1, 1024):
     temp = [0,0,0,0,0,0,0,0,0,0,0]
     i = bin(i)[2:]
-    print(i)
     while len(i) < 10:
         i = '0' + i
     i = i[::-1]
