@@ -52,8 +52,8 @@ while start:
                 nrx -= dx[i]; nry -= dy[i]
             else:
                 nbx -= dx[i]; nby -= dy[i]
-        if (nrx, nry, nbx, nby, cnt+1) not in temp:
-            temp.add((nrx, nry, nbx, nby, cnt+1))
+        if (nrx, nry, nbx, nby) not in temp:
+            temp.add((nrx, nry, nbx, nby))
             start.append((nrx, nry, nbx, nby, cnt+1))
 if not answer:
     print(0)
