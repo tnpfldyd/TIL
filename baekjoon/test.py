@@ -1,25 +1,34 @@
-import sys
-input = sys.stdin.readline
-INF = sys.maxsize
-N = int(input())
-matrix = [list(input().strip()) for _ in range(N)]
-matrix2 = [list(input().strip()) for _ in range(N)]
-for i in range(N):
-    for j in range(N):
-        if i == j:
-            matrix[i][j] = 0
-            matrix2[i][j] = 0
+user = "mrko"
+friends = [ ["donut", "andole"], ["donut", "jun"], ["donut", "mrko"], ["shakevan", "andole"], ["shakevan", "jun"], ["shakevan", "mrko"] ]
+visitors = ["bedi", "bedi", "donut", "bedi", "shakevan"]
+result = ["andole", "jun", "bedi"]
+visited = {}
+temp = set()
+for i in friends:
+    if user in i:
+        for k in i:
+            temp.add(k)
+for arr in friends:
+    cnt = 0
+    for name in arr:
+        if name in temp:
+            cnt += 1
+    if cnt == 1:
+        for name in arr:
+            if name not in temp:
+                if name not in visited:
+                    visited[name] = 10
+                else:
+                    visited[name] += 10
+for name in visitors:
+    if name not in temp:
+        if name not in visited:
+            visited[name] = 1
         else:
-            if matrix[i][j] == '.':
-                matrix[i][j] = INF
-                matrix2[i][j] = INF
-            else:
-                matrix[i][j] = int(matrix[i][j])
-                matrix2[i][j] = int(matrix2[i][j])
-for k in range(N):
-    for i in range(N):
-        for j in range(N):
-            matrix[i][j] = min(matrix[i][j], matrix[i][k]+matrix[k][j])
-            matrix2[i][j] = min(matrix2[i][j],matrix2[i][k] + matrix2[k][j])
-print(matrix)
-print(matrix2)
+            visited[name] += 1
+visited = sorted(visited.items(), key=lambda x : (-x[1], x[0]))
+result = []
+for i in visited:
+    if len(result) < 5:
+        result.append(i[0])
+print(result)

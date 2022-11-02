@@ -1,5 +1,5 @@
 # 건물 보이는거 찾기
-heights = [5, 5, 5]
+heights = [5, 5, 5, 6, 8]
 
 stack = []
 answer = 0
