@@ -10,18 +10,10 @@ while start:
     if x == c and y == d:
         print(visited[(x, y)])
         break
-    if (a, y) not in visited:
-        visited[(a, y)] = visited[(x, y)] + 1
-        start.append((a, y))
-    if (x, b) not in visited:
-        visited[(x, b)] = visited[(x, y)] + 1
-        start.append((x, b))
-    if (0, y) not in visited:
-        visited[(0, y)] = visited[(x, y)] + 1
-        start.append((0, y))
-    if (x, 0) not in visited:
-        visited[(x, 0)] = visited[(x, y)] + 1
-        start.append((x, 0))
+    for nx, ny in ((a,y), (x, b), (0, y), (x, 0)):
+        if (nx, ny) not in visited:
+            visited[(nx, ny)] = visited[(x, y)] + 1
+            start.append((nx, ny))
     if x <= b - y:
         if (0, x+y) not in visited:
             visited[(0, x+y)] = visited[(x, y)] + 1
