@@ -38,8 +38,6 @@ for _ in range(T):
         for j in range(M+2):
             if start1[i][j] != -1 and start2[i][j] != -1 and start3[i][j] != -1:
                 temp = start1[i][j]+start2[i][j]+start3[i][j]
-                if matrix[i][j] == '*':
-                    continue
                 if matrix[i][j] == '#':
                     temp -= 2
                 result = min(result, temp)
