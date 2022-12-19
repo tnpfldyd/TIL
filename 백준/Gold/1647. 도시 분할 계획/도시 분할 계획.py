@@ -1,4 +1,3 @@
-from heapq import heappop, heappush
 import sys
 input = sys.stdin.readline
 
@@ -20,11 +19,11 @@ parent = [i for i in range(N+1)]
 edges = []
 for _ in range(M):
     a, b, t = map(int, input().split())
-    heappush(edges, (t, a, b))
+    edges.append((t, a, b))
+edges.sort()
 result = 0
 max_num = 0
-for _ in range(M):
-    cost, a, b = heappop(edges)
+for cost, a, b in edges:
     if find(a) != find(b):
         union(a, b)
         result += cost
