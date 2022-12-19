@@ -1,4 +1,3 @@
-from heapq import heappop, heappush
 import sys
 input = sys.stdin.readline
 
@@ -27,12 +26,12 @@ for i in range(1, N+1):
     X.append((x, i)); Y.append((y, i)); Z.append((z, i))
 X.sort(); Y.sort(); Z.sort()
 for i in range(N-1):
-    heappush(edges, (abs(X[i][0]-X[i+1][0]), X[i][1], X[i+1][1]))
-    heappush(edges, (abs(Y[i][0]-Y[i+1][0]), Y[i][1], Y[i+1][1]))
-    heappush(edges, (abs(Z[i][0]-Z[i+1][0]), Z[i][1], Z[i+1][1]))
+    edges.append((abs(X[i][0]-X[i+1][0]), X[i][1], X[i+1][1]))
+    edges.append((abs(Y[i][0]-Y[i+1][0]), Y[i][1], Y[i+1][1]))
+    edges.append((abs(Z[i][0]-Z[i+1][0]), Z[i][1], Z[i+1][1]))
+edges.sort()
 result = 0
-for i in range(len(edges)):
-    cost, x, y = heappop(edges)
+for cost, x, y in edges:
     if find(parent, x) != find(parent, y):
         union(parent, x, y)
         result += cost
