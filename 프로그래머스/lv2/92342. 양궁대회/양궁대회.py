@@ -8,7 +8,6 @@ def solution(n, info):
             i = '0' + i
         lie = 0
         ape = 0
-        i = i[::-1]
         for j in range(10):
             if i[j] == '1':
                 temp[j] = info[j] + 1
@@ -24,9 +23,17 @@ def solution(n, info):
             temp[10] = n - sum(temp)
         elif sum(temp) > n:
             continue
-        if lie > ape and (lie - ape) >= max_cnt:
+        if (lie - ape) > max_cnt:
             max_cnt = lie-ape
             result = temp
+        elif lie - ape == max_cnt:
+            for i in reversed(range(11)):
+                if temp[i] > result[i]:
+                    result = temp
+                    break
+                elif temp[i] < result[i]:
+                    break
     if max_cnt == 0:
         return [-1]
+    
     return result
