@@ -6,9 +6,9 @@ def solution(n, info):
         i = bin(i)[2:]
         while len(i) < 10:
             i = '0' + i
-        i = i[::-1]
         lie = 0
         ape = 0
+        i = i[::-1]
         for j in range(10):
             if i[j] == '1':
                 temp[j] = info[j] + 1
@@ -30,4 +30,3 @@ def solution(n, info):
     if max_cnt == 0:
         return [-1]
     return result
-print(solution(1,[1,0,0,0,0,0,0,0,0,0,0]))
