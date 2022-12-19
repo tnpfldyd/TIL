@@ -7,9 +7,7 @@ def find(parent, x):
     parent[x] = find(parent, parent[x])
     return parent[x]
 
-def union(parent, x, y):
-    a = find(parent, x)
-    b = find(parent, y)
+def union(a, b):
     if a < b:
         parent[b] = a
     else:
@@ -32,7 +30,8 @@ for i in range(N-1):
 edges.sort()
 result = 0
 for cost, x, y in edges:
-    if find(parent, x) != find(parent, y):
-        union(parent, x, y)
+    x = find(parent, x); y = find(parent, y)
+    if x != y:
+        union(x, y)
         result += cost
 print(result)
