@@ -35,3 +35,4 @@
   - [CSS](CSS.md)
   - [JavaScript](JavaScript.md)
   - [django](django.md)
+  - [cs](cs.md)
