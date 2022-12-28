@@ -17,6 +17,7 @@ for i in range(N):
 zero3 = []
 for i in itertools.combinations(zero, 3):
     zero3.append(i)
+print(zero3)
 count = 0
 dx, dy = [0,0,1,-1], [1,-1,0,0]
 def bfs():

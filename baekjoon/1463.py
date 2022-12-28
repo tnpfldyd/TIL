@@ -1,13 +1,10 @@
-a = int(input())
-cnt = 0
-while a != 1:
-    if a % 3 == 0:
-        a //= 3
-        cnt += 1
-    elif a % 2 == 0:
-        a //= 2
-        cnt += 1
-    else:
-        a -= 1
-        cnt += 1
-print(cnt)
+N = int(input())
+
+visited = [0] * (N+1)
+for i in range(2, N+1):
+    visited[i] = visited[i-1] + 1
+    if not i % 2:
+        visited[i] = min(visited[i], visited[i//2] + 1)
+    if not i % 3:
+        visited[i] = min(visited[i], visited[i//3] + 1)
+print(visited[N])
