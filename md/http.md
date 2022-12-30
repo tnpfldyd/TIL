@@ -69,7 +69,7 @@
 
   이러한 문제를 해결하기 위해 중요한 정보를 주고 받을 때 도난당하는 것을 막게 하는 프로토콜이 생성 이를 HTTPS 라고 함.
 
-- SSL(Secure Socket Layer)이라는 프로토콜을 사용해 주고 받는 정보를 암호화 했었다.
+- SSL(Secure Socket Layer)이라는 프로토콜을 사용해 주고 받는 정보를 암호화 한다.
 
   이후 SSL은 TLS(Transport Layer Security)로 발전되어 현재는 SSL/TLS라는 단어를 혼용해서 사용하고 있다.
 
