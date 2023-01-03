@@ -4,11 +4,11 @@
 
 ### 성능 요약
 
-메모리: 119724 KB, 시간: 200 ms
+메모리: 34120 KB, 시간: 148 ms
 
 ### 분류
 
-너비 우선 탐색(bfs), 그래프 이론(graphs), 그래프 탐색(graph_traversal), 구현(implementation), 시뮬레이션(simulation)
+너비 우선 탐색(bfs), 그래프 이론(graphs), 그래프 탐색(graph_traversal), 구현(implementation)
 
 ### 문제 설명
 
@@ -24,11 +24,11 @@
 
 <p style="text-align: justify;">1초가 지난 후에 시험관의 상태는 다음과 같다.</p>
 
-<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/9ab631e7-1f1d-42fe-b8b8-95ded9bce52d/-/preview/" style="height: 148px; width: 250px;"></p>
+<p style="text-align: center;"><img alt="" src="" style="height: 148px; width: 250px;"></p>
 
 <p>2초가 지난 후에 시험관의 상태는 다음과 같다.</p>
 
-<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/35ea13c6-9ee3-40e1-8b21-c37beaf46c59/-/preview/" style="height: 148px; width: 250px;"></p>
+<p style="text-align: center;"><img alt="" src="" style="height: 148px; width: 250px;"></p>
 
 <p style="text-align: justify;">결과적으로 2초가 지난 뒤에 (3,2)에 존재하는 바이러스의 종류는 3번 바이러스다. 따라서 3을 출력하면 정답이다.</p>
 
