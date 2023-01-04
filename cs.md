@@ -12,3 +12,7 @@
 
 - [네트워크 라우터](./md/router.md)
 - [tcp/ip계층](./md/tcpIp.md)
+
+- [CPU란?](./md/CPU.md)
+
+- [도메인 개념정리](./md/Domain.md)
