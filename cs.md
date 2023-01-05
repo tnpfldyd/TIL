@@ -16,3 +16,7 @@
 - [CPU란?](./md/CPU.md)
 
 - [도메인 개념정리](./md/Domain.md)
+
+- [GPU란?](./md/gpu.md)
+
+- [IPv4, IPv6 이란?](./md/IPv.md)
