@@ -7,7 +7,6 @@ def solution(survey, choices):
         else:
             p[survey[i][0]] += abs(choices[i]-4)
     q = []
-    print(p)
     for k, v in p.items():
         q.append((k, v))
     result = []
