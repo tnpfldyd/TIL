@@ -20,3 +20,8 @@
 - [GPU란?](./md/gpu.md)
 
 - [IPv4, IPv6 이란?](./md/IPv.md)
+
+- [Session 인증과 JWT 인증](./md/Authentication.md)
+
+- [컴파일러란?](./md/Compiler.md)
+
