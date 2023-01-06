@@ -5,7 +5,7 @@ N = int(input())
 matrix = [list(map(int,input().rstrip())) for _ in range(N)]
 visited = [[0]*N for _ in range(N)]
 start = []
-heappush(start, [0, 0, 0])
+heappush(start, (0, 0, 0))
 visited[0][0] = 1
 dx, dy = [0,0,1,-1], [1,-1,0,0]
 while start:
@@ -18,7 +18,7 @@ while start:
         if 0 <= nx < N and 0 <= ny < N and not visited[nx][ny]:
             if matrix[nx][ny] == 0:
                 visited[nx][ny] = 1
-                heappush(start, [stone+1, nx, ny])
+                heappush(start, (stone+1, nx, ny))
             else:
                 visited[nx][ny] = 1
-                heappush(start, [stone, nx, ny])
+                heappush(start, (stone, nx, ny))
