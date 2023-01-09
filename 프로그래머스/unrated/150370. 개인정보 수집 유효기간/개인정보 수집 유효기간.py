@@ -1,19 +1,19 @@
 def solution(today, terms, privacies):
     ty, tm, td = map(int, today.split('.'))
-    terms_dic = {}
-    answer = []
+    grade_dic = {}
     for i in terms:
-        a, b = i.split(' ')
-        terms_dic[a] = int(b)
+        grade, month = i.split()
+        grade_dic[grade] = int(month)
+
+    answer = []
     cnt = 1
-    for i in privacies:
-        day, grade = i.split(' ')
+    for priva in privacies:
+        day, grade = priva.split()
         y, m, d = map(int, day.split('.'))
-        temp = terms_dic[grade]
-        m += temp
+        m += grade_dic[grade]
         while m > 12:
-            m -= 12
             y += 1
+            m -= 12
         if y < ty:
             answer.append(cnt)
         elif y == ty:
