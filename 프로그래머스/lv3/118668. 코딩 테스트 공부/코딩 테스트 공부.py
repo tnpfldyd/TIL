@@ -1,7 +1,10 @@
 from heapq import heappop, heappush
 
 def solution(alp, cop, problems):
-    max_alp, max_cop = sorted(problems)[-1][0], sorted(problems, key= lambda x : x[1])[-1][1]
+    max_alp, max_cop = 0, 0
+    for i in problems:
+        max_alp = max(max_alp, i[0])
+        max_cop = max(max_cop, i[1])
     edges = set()
     problems.append((0, 0, 1, 0, 1)); problems.append((0, 0, 0, 1, 1))
     for a, c, pa, pc, cost in problems:
