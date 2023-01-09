@@ -1,20 +1,30 @@
-from pprint import pprint
+from heapq import heappop, heappush
 import sys
 INF = sys.maxsize
+def dijkstra(sn, n, matrix):
+    start = []
+    heappush(start, (0, sn))
+    visited = [INF] * n
+    visited[sn] = 0
+    while start:
+        cost, node = heappop(start)
+        if cost > visited[node]:
+            continue
+        for k, v in matrix[node]:
+            nx = cost + k
+            if visited[v] > nx:
+                visited[v] = nx
+                heappush(start, (nx, v))
+    return visited
 def solution(n, s, a, b, fares):
-    matrix = [[INF] * n for _ in range(n)]
+    s -= 1; a -= 1; b -= 1
+    matrix = [[] for _ in range(n)]
     for x, y, cost in fares:
-        matrix[x-1][y-1] = cost
-        matrix[y-1][x-1] = cost
-    for i in range(n):
-        matrix[i][i] = 0
-    for k in range(n):
-        for i in range(n):
-            for j in range(n):
-                matrix[i][j] = min(matrix[i][j], matrix[i][k] + matrix[k][j])
+        x -= 1; y -= 1
+        matrix[x].append((cost, y))
+        matrix[y].append((cost, x))
     answer = INF
-    for k in range(n):
-        result = matrix[s-1][k] + matrix[k][a-1] + matrix[k][b-1]
-        if answer > result:
-            answer = result
+    svisit, avisit, bvisit = dijkstra(s, n, matrix), dijkstra(a, n, matrix), dijkstra(b, n, matrix)
+    for i in range(n):
+        answer = min(answer, svisit[i] + avisit[i] + bvisit[i])
     return answer
