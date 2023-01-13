@@ -6,8 +6,6 @@ start.append((start1, ''))
 visited.add(start1)
 if start1 == end:
     print(0)
-elif end == 0:
-    print('-')
 else:
     while start:
         x, clip = start.popleft()
