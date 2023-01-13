@@ -1,57 +1,31 @@
-from heapq import heappop, heappush
-import itertools
-t = int(input())
-h = list(map(int, input().split()))
-start = []
-cont = 0
-if t == 3:
-    while h[0] > 30 and h[1] > 30 and h[2] > 30:
-        h[0] -= 13; h[1] -= 13; h[2] -= 13
-        cont += 3
-while len(h) < 3:
-    h.append(0)
-heappush(start, [cont, h, t])
-q = [0, 1, 2]
-prev = []
-prev2 = [[0,1],[1,0]]
-for i in itertools.permutations(q, 3):
-    prev.append(i)
+from collections import deque
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+scvs = list(map(int, input().strip().split()))
+
+while len(scvs) < 3:
+    scvs += [0]
+
+hp = [[[-1] * 61 for _ in range(61)] for _ in range(61)]
+
+hp[scvs[0]][scvs[1]][scvs[2]] = 0
+start = deque()
+start.append((scvs[0], scvs[1], scvs[2], 0))
+
+dx, dy, dz = [9,9,3,3,1,1] , [3,1,1,9,3,9], [1,3,9,1,9,3]
+
 while start:
-    cnt, heal, cntt = heappop(start)
-    if heal[0] <= 0 and heal[1] <= 0 and heal[2] <= 0:
+    x, y, z, cnt = start.popleft()
+    if (x, y, z) == (0, 0, 0):
         print(cnt)
         break
-    if cntt == 3:
-        for i in prev:
-            temp = []
-            cnttt = 0
-            temp0 = heal[i[0]] - 9
-            temp1 = heal[i[1]] - 3
-            temp2 = heal[i[2]] - 1
-            if temp0 > 0:
-                cnttt += 1
-            if temp1 > 0:
-                cnttt += 1
-            if temp2 > 0:
-                cnttt += 1
-            temp.append(temp0); temp.append(temp1); temp.append(temp2)
-            temp.sort(reverse=True)
-            heappush(start, [cnt+1, temp, cnttt])
-    if cntt == 2:
-        for i in prev2:
-            temp = []
-            cnttt = 0
-            temp0 = heal[i[0]] - 9
-            temp1 = heal[i[1]] - 3
-            if temp0 > 0:
-                cnttt += 1
-            if temp1 > 0:
-                cnttt += 1
-            temp.append(temp0); temp.append(temp1); temp.append(0)
-            temp.sort(reverse=True)
-            heappush(start, [cnt+1, temp, cnttt])
-    if cntt == 1:
-        temp = []
-        temp0 = heal[0] - 9
-        temp.append(temp0); temp.append(0); temp.append(0)
-        heappush(start, [cnt+1, temp, 1])
+    for i in range(6):
+        nx, ny, nz = x - dx[i], y - dy[i], z - dz[i]
+        nx = 0 if nx < 0 else nx
+        ny = 0 if ny < 0 else ny
+        nz = 0 if nz < 0 else nz
+        if hp[nx][ny][nz] == -1:
+            hp[nx][ny][nz] = hp[x][y][z] + 1
+            start.append((nx, ny, nz, cnt + 1))
