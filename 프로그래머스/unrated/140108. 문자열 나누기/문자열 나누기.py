@@ -1,22 +1,22 @@
 def solution(s):
-    result = 0
-    text = ''
-    cntdic = {}
+    answer = 0
+    str_dic = {}
+    check = ''
     for i in s:
-        if not cntdic:
-            text = i
-            cntdic[i] = 1
-        elif i == text:
-            cntdic[i] += 1
+        if not str_dic:
+            str_dic[i] = 1
+            check = i
         else:
-            if cntdic.get('other'):
-                cntdic['other'] += 1
+            if i == check:
+                str_dic[i] += 1
             else:
-                cntdic['other'] = 1
-        if len(cntdic) == 2:
-            if cntdic[text] == cntdic['other']:
-                cntdic = {}
-                result += 1
-    if cntdic:
-        result += 1
-    return result
+                if not str_dic.get('other'):
+                    str_dic['other'] = 1
+                else:
+                    str_dic['other'] += 1
+        if len(str_dic) == 2 and str_dic[check] == str_dic['other']:
+            answer += 1
+            str_dic = {}
+    if str_dic:
+        answer += 1
+    return answer
