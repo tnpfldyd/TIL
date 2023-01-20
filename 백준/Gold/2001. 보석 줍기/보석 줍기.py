@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 N, M, K = map(int, input().split())
 
 jewel = [0] * (N + 1)
