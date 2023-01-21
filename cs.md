@@ -25,3 +25,7 @@
 - [ORM 이란?](./md/ORM.md)
 
 - [프로세스와 스레드](./md/process_thread.md)
+
+- [네이티브앱, 웹앱, 하이브리드앱](./md/app.md)
+
+- [NoSQL과 RDBMS의 특징과 차이점](./md/DB.md)
