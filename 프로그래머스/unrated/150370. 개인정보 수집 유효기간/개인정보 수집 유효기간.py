@@ -1,26 +1,25 @@
 def solution(today, terms, privacies):
-    ty, tm, td = map(int, today.split('.'))
-    grade_dic = {}
-    for i in terms:
-        grade, month = i.split()
-        grade_dic[grade] = int(month)
-
+    ty,tm,td = map(int, today.split('.'))
+    terms_dic = {}
+    for term in terms:
+        grade, month = term.split()
+        terms_dic[grade] = int(month)
     answer = []
     cnt = 1
-    for priva in privacies:
-        day, grade = priva.split()
+    for privacy in privacies:
+        day, grade = privacy.split()
         y, m, d = map(int, day.split('.'))
-        m += grade_dic[grade]
+        m += terms_dic[grade]
         while m > 12:
-            y += 1
             m -= 12
-        if y < ty:
+            y += 1
+        if ty > y:
             answer.append(cnt)
-        elif y == ty:
-            if m < tm:
+        elif ty == y:
+            if tm > m:
                 answer.append(cnt)
-            elif m == tm:
-                if d <= td:
+            elif tm == m:
+                if td >= d:
                     answer.append(cnt)
         cnt += 1
     return answer
