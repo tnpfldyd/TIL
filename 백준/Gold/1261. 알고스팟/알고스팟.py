@@ -1,24 +1,28 @@
 from heapq import heappop, heappush
 import sys
+INF = sys.maxsize
 input = sys.stdin.readline
-N, M = map(int, input().split())
-matrix = [list(map(int,input().rstrip())) for _ in range(M)]
-visited = [[0]*N for _ in range(M)]
+M, N = map(int, input().split())
+
+matrix = [list(input().strip()) for _ in range(N)]
+
+visited = [[INF] * M for _ in range(N)]
+visited[0][0] = 0
+
 start = []
-heappush(start, [0, 0, 0])
-visited[0][0] = 1
-dx, dy = [0,0,1,-1], [1,-1,0,0]
+heappush(start, (0, 0, 0))
+dx, dy = [0,0,1,-1],[1,-1,0,0]
 while start:
-    stone, x, y = heappop(start)
-    if x == M-1 and y == N-1:
-        print(stone)
+    cnt, x, y = heappop(start)
+    if (x, y) == (N-1, M-1):
+        print(cnt)
         break
     for i in range(4):
         nx, ny = x + dx[i], y + dy[i]
-        if 0 <= nx < M and 0 <= ny < N and not visited[nx][ny]:
-            if matrix[nx][ny] == 1:
-                visited[nx][ny] = 1
-                heappush(start, [stone+1, nx, ny])
-            else:
-                visited[nx][ny] = 1
-                heappush(start, [stone, nx, ny])
+        if 0 <= nx < N and 0 <= ny < M:
+            next_cost = cnt
+            if matrix[nx][ny] == '1':
+                next_cost = cnt + 1
+            if visited[nx][ny] > next_cost:
+                visited[nx][ny] = next_cost
+                heappush(start, (next_cost, nx, ny))
