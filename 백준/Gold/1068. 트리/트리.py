@@ -18,13 +18,13 @@ for i in range(T):
         visited[i] = True    
 cnt = 0
 while start:
-    temp = len(start)
     x = start.popleft()
+    temp = len(start)
     for i in new_matrix[x]:
         if not visited[i]:
             visited[i] = True
             start.append(i)
     temp2 = len(start)
-    if temp -1 == temp2:
+    if temp == temp2:
         cnt += 1
 print(cnt)
