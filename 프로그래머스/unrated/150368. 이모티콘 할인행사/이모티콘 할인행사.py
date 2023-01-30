@@ -14,7 +14,6 @@ def solution(users, emoticons):
                 sign += 1
             else:
                 total += cnt
-        print(sign, total)
         if person < sign:
             person = sign
             result = total
