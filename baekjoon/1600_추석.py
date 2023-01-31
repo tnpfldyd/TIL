@@ -15,7 +15,7 @@ while start:
     if x == M-1 and y == N-1:
         print(visited[x][y][k])
         break
-    if k < K: # 아직 총 K 이동횟수 보다 적을 땐 말처럼 이동한 경우와 일반 이동 둘 다 사용 if elif 가 아니라 if if로 둘 다 실행되도록 이동해야함. 
+    if k < K: # 아직 총 K 이동횟수 보다 적을 땐 말처럼 이동한 경우와 일반 이동 둘 다 사용
         for i in range(8):
             nx, ny = x + sx[i], y + sy[i]
             if 0 <= nx < M and 0 <= ny < N:
