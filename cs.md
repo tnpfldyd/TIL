@@ -33,3 +33,9 @@
 - [클린코드 / 리팩토링](./md/cleancode_refactoring.md)
 
 - [DB index](./md/db_index.md)
+
+- [TDD란?](./md/TDD.md)
+
+- [애자일 방법론이란?](./md/Agile.md)
+
+- [DB 정규화란?](./md/database_nomalization.md)
