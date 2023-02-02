@@ -1,26 +1,26 @@
 from heapq import heappop, heappush
 import sys
-input = sys.stdin.readline
 INF = sys.maxsize
-T = int(input())
-M = int(input())
-matrix = [[] for _ in range(T)]
-for i in range(M):
-    a, b, k = map(int, input().split()) 
-    matrix[a-1].append([b-1, k])
+N, M = int(input()), int(input())
+matrix = [[] for _ in range(N)]
+for _ in range(M):
+    a, b, cost = map(int, input().split())
+    a -= 1; b -= 1
+    matrix[a].append((cost, b))
+visited = [INF] * N
 start, end = map(int, input().split())
-visited = [INF] * T
-stack = []
-heappush(stack, [0, start-1])
-visited[start-1] = 0
-while stack:
-    cost, x = heappop(stack)
-    if cost > visited[x]:
+start -= 1; end -= 1
+visited[start] = 0
+
+heap = []
+heappush(heap, (0, start))
+while heap:
+    cost, node = heappop(heap)
+    if cost > visited[node]:
         continue
-    else:
-        for i in matrix[x]:
-            temp = cost + i[1]
-            if visited[i[0]] > temp:
-                visited[i[0]] = temp
-                heappush(stack, [temp, i[0]])
-print(visited[end-1])
+    for k, v in matrix[node]:
+        next_cost = cost + k
+        if visited[v] > next_cost:
+            visited[v] = next_cost
+            heappush(heap, (next_cost, v))
+print(visited[end])
