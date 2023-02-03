@@ -39,3 +39,5 @@
 - [애자일 방법론이란?](./md/Agile.md)
 
 - [DB 정규화란?](./md/database_nomalization.md)
+
+- [GET, POST의 차이](./md/httpmathod.md)
