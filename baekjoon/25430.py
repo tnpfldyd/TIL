@@ -14,11 +14,12 @@ for _ in range(M):
     matrix[b].append((t, a))
     visited[a][t] = INF
     visited[b][t] = INF
+
 s, e = map(int, input().split())
 s -= 1; e -= 1
 start = []
 visited[s][0] = 0
-heappush(start, [0, 0, s])
+heappush(start, (0, 0, s))
 while start:
     x, cost, node = heappop(start)
     if node == e:
@@ -30,6 +31,6 @@ while start:
         nx = k + x
         if k > cost and visited[v][k] > nx:
             visited[v][k] = nx
-            heappush(start, [nx, k, v])
+            heappush(start, (nx, k, v))
 else:
     print('DIGESTA')

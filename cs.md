@@ -41,3 +41,5 @@
 - [DB 정규화란?](./md/database_nomalization.md)
 
 - [GET, POST의 차이](./md/httpmathod.md)
+
+- [IPC란?](./md/IPC.md)
