@@ -19,13 +19,11 @@ s -= 1; e -= 1
 start = []
 visited[s][0] = 0
 heappush(start, [0, 0, s])
-answer = INF
-
 while start:
     x, cost, node = heappop(start)
     if node == e:
-        answer = min(answer, x)
-        continue
+        print(x)
+        break
     if x > visited[node][cost]:
         continue
     for k, v in matrix[node]:
@@ -33,4 +31,5 @@ while start:
         if k > cost and visited[v][k] > nx:
             visited[v][k] = nx
             heappush(start, [nx, k, v])
-print(answer if answer != INF else 'DIGESTA')
+else:
+    print('DIGESTA')
