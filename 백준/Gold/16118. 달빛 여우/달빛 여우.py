@@ -11,7 +11,7 @@ for i in range(M):
     matrix[b].append((t, a))
 def fox(s):
     start = []
-    heappush(start, [0, s])
+    heappush(start, (0, s))
     visited = [INF] * N
     visited[0] = 0
     while start:
@@ -22,13 +22,13 @@ def fox(s):
             nx = k + x
             if visited[v] > nx:
                 visited[v] = nx
-                heappush(start, [nx, v])
+                heappush(start, (nx, v))
     return visited
 def wolf(s):
     start = []
     visited2 = [[INF] * N for _ in range(2)]
     visited2[0][0] = 0
-    heappush(start, [0, s, 0])
+    heappush(start, (0, s, 0))
     while start:
         x, node, cur = heappop(start)
         if x > visited2[cur][node]:
@@ -38,13 +38,13 @@ def wolf(s):
                 nx = k/2 + x
                 if visited2[1][v] > nx:
                     visited2[1][v] = nx
-                    heappush(start, [nx, v, cur+1])
+                    heappush(start, (nx, v, cur+1))
         else:
             for k, v in matrix[node]:
                 nx = k*2 + x
                 if visited2[0][v] > nx:
                     visited2[0][v] = nx
-                    heappush(start, [nx, v, cur-1])
+                    heappush(start, (nx, v, cur-1))
     return visited2
 foxy = fox(0)
 wolfy = wolf(0)
