@@ -8,6 +8,7 @@ for _ in range(M):
     a, b, t = map(int, input().split())
     a -= 1; b -= 1
     matrix[b].append((t, a)) # 모든 집에서 면접장으로 오는 거리를 구하는 것보다 간선을 뒤집어서 면접지를 출발지로 두고 각 집의 거리를 구하는게 빠름. K <= N 의 조건 때문에,
+    # 그리고 면접장을 출발지로 잡아야, 모든 면접장에서 한꺼번에 출발해도 문제가 안생김. 기존 집을 다 0으로 만들고 다익스트라를 돌리게 되면, 도착지에 도착을 못하는 경우가 생김. 
 k_list = list(map(int, input().rstrip().split())) # 면접장의 위치
 start = []
 visited = [INF] * N
