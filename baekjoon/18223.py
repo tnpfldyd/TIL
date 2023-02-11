@@ -2,16 +2,17 @@ from heapq import heappop, heappush
 import sys
 input = sys.stdin.readline
 INF = sys.maxsize
-N, M, P = map(int, input().split())
+N, M, P = map(int, input().split()) # 정점, 간선, 건우 위치
 matrix = [[] for _ in range(N)]
 for _ in range(M):
     a, b, t = map(int, input().split())
     a -= 1; b -= 1
     matrix[a].append((t, b))
-    matrix[b].append((t, a))
-def heap(s):
+    matrix[b].append((t, a)) # 양방향 간선
+
+def heap(s): # 일반적인 다익스트라
     start = []
-    heappush(start, [0, s])
+    heappush(start, (0, s))
     visited = [INF] * N
     visited[s] = 0
     while start:
@@ -22,8 +23,10 @@ def heap(s):
             nx = x + k
             if visited[v] > nx:
                 visited[v] = nx
-                heappush(start, [nx, v])
+                heappush(start, (nx, v))
     return visited
-v1 = heap(0)
-v2 = heap(P-1)
+
+v1 = heap(0) # 출발지로부터 건우 위치, 도착 위치를 구하기 위함.
+v2 = heap(P-1) # 건우 위치부터 도착 위치를 구하기 위함
+# 만약 출발지 > 도착지 거리가 출발지 > 건우 + 건우 > 도착 위치와 거리가 같다면 구출, 아니면 빠이
 print('SAVE HIM' if v1[N-1] == v1[P-1] + v2[N-1] else 'GOOD BYE')

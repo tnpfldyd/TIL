@@ -1,10 +1,17 @@
-import itertools
+import sys
+input = sys.stdin.readline
 N, M = map(int,input().split())
 result = []
-for i in range(1, N+1):
-    result.append(i)
-final = []
-for i in itertools.combinations(result, M):
-    final.append(i)
-for i in final:
-    print(*i)
+visited = [False] * (N + 1)
+def dfs(num, cnt):
+    if cnt == M:
+        print(*result)
+        return
+    for i in range(num, N + 1):
+        if not visited[i]:
+            visited[i] = True
+            result.append(i)
+            dfs(i + 1, cnt + 1)
+            result.pop()
+            visited[i] = False
+dfs(1, 0)
