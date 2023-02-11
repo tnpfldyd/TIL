@@ -1,10 +1,10 @@
-# [Silver III] N과 M (1) - 15649 
+# [Silver III] N과 M (2) - 15650 
 
-[문제 링크](https://www.acmicpc.net/problem/15649) 
+[문제 링크](https://www.acmicpc.net/problem/15650) 
 
 ### 성능 요약
 
-메모리: 31256 KB, 시간: 184 ms
+메모리: 31256 KB, 시간: 40 ms
 
 ### 분류
 
@@ -16,6 +16,7 @@
 
 <ul>
 	<li>1부터 N까지 자연수 중에서 중복 없이 M개를 고른 수열</li>
+	<li>고른 수열은 오름차순이어야 한다.</li>
 </ul>
 
 ### 입력 
