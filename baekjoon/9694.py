@@ -13,21 +13,20 @@ for i in range(1, T+1):
     visited = [INF] * N
     visited[0] = 0
     start = []
-    temp = []
-    heappush(start, [0, 0, [0]])
+    heappush(start, (0, 0, [0]))
+    print(f'Case #{i}:', end = ' ')
     while start:
         x, node, load = heappop(start)
         if x > visited[node]:
             continue
+        if node == N - 1:
+            print(*load)
+            break
         for k, v in matrix[node]:
             nx = x + k
+            nload = load + [v]
             if visited[v] > nx:
                 visited[v] = nx
-                heappush(start, [nx, v, load+[v]])
-                if v == N-1:
-                    temp = load+[v]
-    print(f'Case #{i}:', end = ' ')
-    if len(temp) != 0:
-        print(*temp)
+                heappush(start, (nx, v, nload))
     else:
         print(-1)
