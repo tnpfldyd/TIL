@@ -1,29 +1,32 @@
-import sys
-
 from heapq import heappop, heappush
-
+import sys
 INF = sys.maxsize
+input = sys.stdin.readline
 N = int(input())
 M = int(input())
-Map_ = [[] for i in range(N)]
-for i in range(M):
-    v1, v2, cost = map(int, input().split())
-    Map_[v1 - 1].append((v2 - 1, cost))
-start, end = map(int, input().split())
-
-cost_list = [INF] * N
-
-stack = [(0, start - 1, [start])]
-cost_list[start - 1] = 0
-while stack:
-    c, s, str_v = heappop(stack)
-    if s == (end - 1):
-        print(c)
-        print(len(str_v))
-        print(*str_v)
+visited = [INF] * N
+matrix = [[] for _ in range(N)]
+for _ in range(M):
+    a, b, t = map(int, input().split())
+    a -= 1; b -= 1
+    matrix[a].append((t, b))
+s, e = map(int, input().split())
+s -= 1; e -= 1
+start = []
+heappush(start, (0, s, [s + 1]))
+visited[s] = 0
+while start:
+    x, node, load = heappop(start)
+    if x > visited[node]:
+        continue
+    if node == e:
+        print(x)
+        print(len(load))
+        print(*load)
         break
-    for i in Map_[s]:
-        if cost_list[i[0]] > c + i[1]:
-            cost_list[i[0]] = c + i[1]
-            str_v2 = str_v + [i[0] + 1]
-            heappush(stack, (cost_list[i[0]], i[0], str_v2))
+    for cost, v in matrix[node]:
+        nx = x + cost
+        nload = load + [v + 1]
+        if visited[v] > nx:
+            visited[v] = nx
+            heappush(start, (nx, v, nload))
