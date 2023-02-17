@@ -11,21 +11,21 @@ for _ in range(M):
     a -= 1; b -= 1
     matrix[a].append((m, t, b))
     matrix[b].append((m, t, a))
-visited = [INF] * N
-visited[0] = 0
+time_visit = [INF] * N
+money_visit = [INF] * N
+time_visit[0] = 0
+money_visit[0] = 0
 start = []
-result = []
-heappush(start, [0, 0, 0])
+heappush(start, (0, 0, 0))
 while start:
-    mon, x, node = heappop(start)
+    mon, x, node = heappop(start) # 
     for k, y, v in matrix[node]:
         nx, ny = mon+k, x+y
         if nx <= money and ny <= time:
-            if v == N-1:
-                result.append(nx)
-            else:
-                heappush(start, [nx, ny, v])
-if len(result) == 0:
-    print(-1)
-else:
-    print(min(result))
+            if money_visit[v] > nx:
+                money_visit[v] = nx
+                heappush(start, (nx, ny, v))
+            if time_visit[v] > ny:
+                time_visit[v] = ny
+                heappush(start, (nx, ny, v))
+print(money_visit[N-1] if money_visit[N-1] != INF else -1)
