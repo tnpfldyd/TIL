@@ -58,8 +58,8 @@ while True:
             break
         else:
             if scc[i] > scc[-i]:
-                answer.append(str(i-1) + 'h')
+                answer.append(str(i-1)+'h')
             else:
-                answer.append(str(i-1) + 'w')
+                answer.append(str(i-1)+'w')
     else:
         print(*answer)
