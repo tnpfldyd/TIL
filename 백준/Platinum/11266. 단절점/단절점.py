@@ -1,5 +1,6 @@
 import sys
 sys.setrecursionlimit(10 ** 7)
+input = sys.stdin.readline
 N, M = map(int, input().split())
 matrix = [[] for _ in range(N + 1)]
 for _ in range(M):
