@@ -1,6 +1,14 @@
 import sys
 sys.setrecursionlimit(10 ** 7)
 input = sys.stdin.readline
+N, M = map(int, input().split())
+matrix = [[] for _ in range(N + 1)]
+rev_matrix = [[] for _ in range(N + 1)]
+
+for _ in range(M):
+    a, b = map(int, input().split())
+    matrix[a].append(b)
+    rev_matrix[b].append(a)
 
 def dfs(x):
     visited[x] = True
@@ -11,51 +19,31 @@ def dfs(x):
 
 def rev_dfs(x):
     scc[x] = cnt
-    temp.append(x + 1)
     for next in rev_matrix[x]:
         if scc[next] == -1:
             rev_dfs(next)
 
-N, M = map(int, input().split())
-matrix = [[] for _ in range(N)]
-rev_matrix = [[] for _ in range(N)]
-
-for _ in range(M):
-    a, b = map(int, input().split())
-    a -= 1; b -= 1
-    matrix[a].append(b)
-    rev_matrix[b].append(a)
-
+visited = [False] * (N + 1)
 stack = []
-visited = [False] * N
-
-for i in range(N):
+for i in range(1, N + 1):
     if not visited[i]:
         dfs(i)
 
-scc = [-1] * N
+scc = [-1] * (N + 1)
 cnt = 0
-result = []
 while stack:
     node = stack.pop()
     if scc[node] == -1:
-        temp = []
         rev_dfs(node)
         cnt += 1
-        temp.sort()
-        result.append(temp)
-
 indegree = [0] * cnt
-for i in range(N):
+
+for i in range(1, N + 1):
     for next in matrix[i]:
         if scc[i] != scc[next]:
             indegree[scc[next]] += 1
-answer = []
+answer = 0
 for i in range(cnt):
     if not indegree[i]:
-        answer.append(i)
-if len(answer) == 1:
-    print(len(result[answer[0]]))
-    print(*result[answer[0]])
-else:
-    print(0)
+        answer += 1
+print(answer)
