@@ -13,12 +13,12 @@ K = int(input())
 
 answer = 0
 
-for i in range(N):
-    zero_cnt = 0
-    for j in range(M):
-        if not int(matrix[i][j]):
-            zero_cnt += 1
+arr_cnt = sorted(arr_cnt.items(), key=lambda x : -x[1])
+
+for k, v in arr_cnt:
+    zero_cnt = k.count('0')
     if zero_cnt <= K and zero_cnt % 2 == K % 2:
-        answer = max(answer, arr_cnt[matrix[i]])
+        answer = v
+        break
 
 print(answer)
