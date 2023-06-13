@@ -1,6 +1,6 @@
 import sys
 input = sys.stdin.readline
-sys.setrecursionlimit(10 ** 6)
+# sys.setrecursionlimit(10 ** 6)
 MAX = 1000001
 def find(x):
     if parent[x] == x:
@@ -30,3 +30,4 @@ for _ in range(N):
     else:
         x = find(*ab)
         print(parts[x])
+
