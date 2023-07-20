@@ -1,34 +1,27 @@
-from heapq import heappop, heappush
 import sys
 input = sys.stdin.readline
 INF = sys.maxsize
-T = int(input())
-for _ in range(T):
-    N, C, M = map(int, input().split())
-    matrix = [[] for _ in range(N)]
-    for _ in range(M):
-        a, b, c, t = map(int, input().split())
-        a -= 1; b -= 1
-        matrix[a].append((t, c, b))
-    visited = [[INF] * (C+1) for _ in range(N)]
-    visited[0][0] = 0
-    start = []
-    heappush(start, [0, 0, 0])
-    while start:
-        x, m, node = heappop(start)
-        if x > visited[node][m]:
-            continue
-        if node == N-1:
-            print(visited[node][m])
-            break
-        for k, mon, v in matrix[node]:
-            nx, nm = k + x, m + mon
-            if C >= nm and visited[v][nm] > nx:
-                for i in range(nm, C+1):
-                    if visited[v][i] > nx:
-                        visited[v][i] = nx
-                    else:
-                        break
-                heappush(start, [nx, nm, v])
-    else:
-        print('Poor KCM')
+
+for _ in range(int(input())):
+    ans = INF
+    N, M, K = map(int, input().split())
+    matrix = [[] for _ in range(N+1)]
+    for _ in range(K):
+        u, v, c, d = map(int, input().split())
+        matrix[u].append((v, c, d))
+
+    dp = [[INF]*(M+1) for _ in range(N+1)]
+    dp[1][0] = 0
+
+    for j in range(M+1):
+        for i in range(1, N+1):
+            if dp[i][j] == INF:
+                continue
+            t = dp[i][j]
+            for nv, nc, nd in matrix[i]:
+                if nc+j > M:
+                    continue
+                dp[nv][nc+j] = min(dp[nv][nc+j], t+nd)
+
+    res = min(dp[N])
+    print(res if res != INF else "Poor KCM")
