@@ -1,6 +1,16 @@
 from collections import deque
-import sys, bisect
+import sys
 input = sys.stdin.readline
+
+def binary_search(target):
+    left, right = 0, N
+    while left < right:
+        mid = (left + right) // 2
+        if points[mid][1] < target:
+            left = mid + 1
+        else:
+            right = mid
+    return left
 
 N, T = map(int, input().split())
 points = sorted([tuple(map(int, input().split())) for _ in range(N)], key=lambda x : x[1])
@@ -14,9 +24,8 @@ while q:
         print(cnt)
         break
 
-    cur = bisect.bisect_left(points, y - 2, key=lambda x : x[1])
+    cur = binary_search(y -2)
     
-
     for i in range(cur, N):
         nx, ny = points[i]
         if abs(ny - y) > 2:
