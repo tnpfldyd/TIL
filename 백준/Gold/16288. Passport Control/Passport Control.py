@@ -4,13 +4,13 @@ visited = [False] * (N + 1)
 
 cnt = p = 0
 while p < N:
-    n = i = 0
+    cur = 0
     for j in range(1, N + 1):
         if visited[j]:
             continue
-        if n < people[j] and i < j:
+        if cur < people[j]:
             visited[j] = True
             p += 1
-            n, i = people[j], j
+            cur = people[j]
     cnt += 1
 print("NO" if cnt > K else "YES")
