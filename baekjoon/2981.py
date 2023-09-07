@@ -1,21 +1,18 @@
-import sys
+import sys, math
 input = sys.stdin.readline
-def GCD(a, b):
-    while b != 0:
-        temp = a
-        a = b
-        b = a % b
-    return a
-T = int(input())
-result = [(int(input())) for _ in range(T)]
-start = GCD(min(result), max(result))
-number_ = set()
-num = set()
-for j in range(2, start):
-    if len(number_) == 1:
-        num.add(j-1)
-    number_.clear()
-    for i in result:
-        i %= j
-        number_.add(i)
-print(*num)
+N = int(input())
+numbers = sorted((int(input())) for _ in range(N))
+diffs = [numbers[i] - numbers[i - 1] for i in range(1, N)]
+prev = diffs[0]
+
+for i in range(1, N - 1):
+    prev = math.gcd(prev, diffs[i])
+
+answer = set()
+for i in range(2, int(prev ** 0.5) + 1):
+    if not prev % i:
+        answer.add(i)
+        answer.add(prev // i)
+answer.add(prev)
+answer = sorted(list(answer))
+print(*answer)
