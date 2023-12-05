@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(10 ** 7)
 N = int(input())
 left_cards = list(map(int, input().split()))
 right_cards = list(map(int, input().split()))
