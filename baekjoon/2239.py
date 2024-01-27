@@ -4,7 +4,7 @@ input = sys.stdin.readline
 board = []
 points = []
 for i in range(9):
-    row = list(map(int, input().split()))
+    row = list(map(int, list(input().strip())))
     for j in range(9):
         if not row[j]:
             points.append((i, j))
@@ -28,7 +28,7 @@ def isPossible(x, y):
 def sudoku(n):
     if n == cnt:
         for row in board:
-            print(*row)
+            print(''.join(map(str, row)))
         sys.exit(0)
     x, y = points[n]
     for i in range(1, 10):

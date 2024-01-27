@@ -1,28 +1,37 @@
-import heapq, sys
+from heapq import heappop, heappush
+import sys
 input = sys.stdin.readline
 
-def main():
-    for _ in range(int(input())):
-        k = int(input())
-        max_heap = []
-        min_heap = []
-        for _ in range(k):
-            operation, n = input().split()
-            n = int(n)
-            if operation == "I":
-                heapq.heappush(max_heap, n)
-                heapq.heappush(min_heap, -n)
-            elif operation == "D":
-                if len(max_heap) > 0 and n == 1:
-                    heapq.heappop(max_heap)
-                elif len(min_heap) > 0 and n == -1:
-                    heapq.heappop(min_heap)
+T = int(input())
 
-        if len(max_heap) == 0 and len(min_heap) == 0:
-            print("EMPTY")
+def pq_pop(pq):
+    while pq and visited[pq[0][1]]:
+        heappop(pq)
+
+for _ in range(T):
+    min_pq = []
+    max_pq = []
+    K = int(input())
+    visited = [False] * K
+    for i in range(K):
+        order, num = input().split()
+        num = int(num)
+        if order == 'I':
+            heappush(min_pq, (num, i))
+            heappush(max_pq, (-num, i))
         else:
-            print(max_heap[0], -min_heap[0])
+            if num == -1:
+                pq_pop(min_pq)
+                if min_pq:
+                    visited[heappop(min_pq)[1]] = True
+            elif num == 1:
+                pq_pop(max_pq)
+                if max_pq:
+                    visited[heappop(max_pq)[1]] = True
 
+    pq_pop(min_pq); pq_pop(max_pq)
 
-if __name__ == "__main__":
-    main()
+    if not min_pq:
+        print('EMPTY')
+    else:
+        print(-max_pq[0][0], min_pq[0][0])
