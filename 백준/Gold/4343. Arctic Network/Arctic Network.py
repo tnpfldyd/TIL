@@ -22,7 +22,7 @@ for _ in range(N):
 
     edges = []
     for i in range(p):
-        for j in range(i, p):
+        for j in range(i + 1, p):
             dist = ((v[i][0] - v[j][0]) ** 2 + (v[i][1] - v[j][1]) ** 2) ** 0.5
             edges.append((i, j, dist))
 
