@@ -1,30 +1,51 @@
-N = int(input())
-numbers = [0] + list(map(int, input().split()))
-prefix_sum = [0] * 100010
+NMAX = 100010
 
-for i in range(1, N + 1):
-    prefix_sum[i] = prefix_sum[i - 1] + numbers[i]
-target = 0
-result = 0
-dp = [0] * 5
+N = 0
+inp = [0] * NMAX
+sum_arr = [0] * NMAX
+val = 0
+ret = 0
+dp = [[-1] * 4 for _ in range(NMAX)]
 
-if prefix_sum[N] % 4 > 0:
-    result = 0
-else:
-    if prefix_sum[N] == 0:
-        zero_count = sum(1 for i in range(1, N + 1) if prefix_sum[i] == 0)
-        result = (zero_count - 1) * (zero_count - 2) * (zero_count - 3) // 6
+def solve(idx, cnt):
+    if dp[idx][cnt] >= 0:
+        return dp[idx][cnt]
+
+    if idx > N:
+        dp[idx][cnt] = 0
+    elif cnt == 3:
+        if sum_arr[N] - sum_arr[idx-1] == val:
+            dp[idx][cnt] = 1
+        else:
+            dp[idx][cnt] = 0
     else:
-        dp[0] = 1
-        target = prefix_sum[N] // 4
+        ret = 0
+        for nxt in range(idx, N + 1):
+            tmp = sum_arr[nxt] - sum_arr[idx-1]
+            if tmp == val:
+                ret += solve(nxt + 1, cnt + 1)
+        dp[idx][cnt] = ret
 
+    return dp[idx][cnt]
+
+N = int(input())
+inp = [0] + list(map(int, input().split()))
+for i in range(1, N + 1):
+    sum_arr[i] = sum_arr[i - 1] + inp[i]
+
+if sum_arr[N] % 4 > 0:
+    ret = 0
+else:
+    if not sum_arr[N]:
+        zero = 0
         for i in range(1, N + 1):
-            quarter = prefix_sum[i] // target
-            if prefix_sum[i] % target != 0 or quarter < 1 or quarter > 4:
-                continue
+            zero += (sum_arr[i] == 0)
+        ret = (zero - 1) * (zero - 2) * (zero - 3) // 6
+    else:
+        val = sum_arr[N] // 4
+        dp = [[-1] * 4 for _ in range(NMAX)]
+        for i in range(1, N + 1):
+            if sum_arr[i] == val:
+                ret += solve(i + 1, 1)
 
-            dp[quarter] += dp[quarter - 1]
-
-        result = dp[4]
-
-print(result)
+print(ret)
